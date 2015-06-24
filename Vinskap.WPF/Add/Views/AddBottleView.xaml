@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="Vinskap.WPF.Add.Views.AddBottleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Width="60" Margin="5" Click="Button_Click_1" IsEnabled="{Binding CanOk}">OK</Button>
+            <Button Width="60" Margin="5" Click="Button_Click">Cancel</Button>
+        </StackPanel>
+        <ContentControl Content="{Binding Editor.View}"></ContentControl>
+    </DockPanel>
+</UserControl>

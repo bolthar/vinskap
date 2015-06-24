@@ -1,0 +1,6 @@
+﻿<Window x:Class="Vinskap.WPF.Shell.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vinskap" Width="450" Height="350">
+    <ContentControl Content="{Binding Current.View}"></ContentControl>
+</Window>

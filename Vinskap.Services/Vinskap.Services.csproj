@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E43532A9-9962-4910-B2BB-5E255D7621DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vinskap.Services</RootNamespace>
+    <AssemblyName>Vinskap.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CreateBottle.cs" />
+    <Compile Include="Commands\Vaildation\CompositeValidator.cs" />
+    <Compile Include="Commands\Vaildation\ErrorMessage.cs" />
+    <Compile Include="Commands\Vaildation\IValidator.cs" />
+    <Compile Include="Commands\Vaildation\UniquenessConstraint.cs" />
+    <Compile Include="Commands\Vaildation\ValidateBottle.cs" />
+    <Compile Include="Commands\Vaildation\ValidateKind.cs" />
+    <Compile Include="Commands\Vaildation\ValidateProducer.cs" />
+    <Compile Include="Commands\Vaildation\ValidateWine.cs" />
+    <Compile Include="Commands\Vaildation\ValidatorFor.cs" />
+    <Compile Include="Events\BottleCreated.cs" />
+    <Compile Include="Events\IEvent.cs" />
+    <Compile Include="Events\IEventListener.cs" />
+    <Compile Include="Events\KindCreated.cs" />
+    <Compile Include="Events\ProducerCreated.cs" />
+    <Compile Include="Events\WineCreated.cs" />
+    <Compile Include="ExecutionContext.cs" />
+    <Compile Include="Functional\Maybe.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CellarRepository.cs" />
+    <Compile Include="Repositories\EntityCache.cs" />
+    <Compile Include="Repositories\EventLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vinskap.Domain\Vinskap.Domain.csproj">
+      <Project>{2f43e6df-f725-41f0-a086-95b2e17131b0}</Project>
+      <Name>Vinskap.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
