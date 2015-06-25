@@ -10,12 +10,20 @@
 <head>
     @Styles.Render("~/Content/bootstrap")
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/knockout")
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
-    <div> 
+    <div id="container" class="container">
+        <div data-bind="template : { name: View }"></div>
+        <div data-bind="template : { name: View }"></div>
+        <div data-bind="template : { name: View }"></div>
+        <div data-bind="template : { name: View }"></div>
+        <div data-bind="template : { name: View }"></div>
+        <div data-bind="template : { name: View }"></div>
     </div>
+
+    @Scripts.Render("~/bundles/app")
 </body>
 </html>

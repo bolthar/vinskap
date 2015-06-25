@@ -13,6 +13,9 @@ namespace Vinskap.Web.App_Start
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/lib/jquery/jquery-2.1.4.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                        "~/Scripts/lib/knockout/knockout-3.3.0.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/app").Include("~/Scripts/app/app.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").IncludeDirectory("~/Content/Stylesheets/bootstrap", "*.less"));

@@ -115,6 +115,9 @@
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Scripts\app\views\ShellView.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\lib\bootstrap\bootstrap-alert.js" />
     <Content Include="Scripts\lib\bootstrap\bootstrap-button.js" />
     <Content Include="Scripts\lib\bootstrap\bootstrap-carousel.js" />
@@ -199,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\ShellViewModel.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>
