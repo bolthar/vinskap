@@ -115,6 +115,12 @@
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\BetaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\AlphaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
+    <Content Include="Scripts\app\views\AlphaView.html" />
+    <Content Include="Scripts\app\views\BetaView.html" />
+    <Content Include="Scripts\app\views\ChildView.html" />
     <Content Include="Scripts\app\views\ShellView.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -202,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\ChildViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ShellViewModel.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />

@@ -1,5 +1,6 @@
 ﻿/// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/knockout/knockout.d.ts" />
+/// <reference path="viewmodels/ViewModel.ts" />
 /// <reference path="viewmodels/ShellViewmodel.ts" />
 
 class TemplateRepository {
@@ -18,12 +19,13 @@ class TemplateRepository {
 
 var templateRepository = new TemplateRepository();
 
+
 class HtmlTemplate {
 
     constructor(private templateKey: string) {
     }
 
-    template = ko.observable("<span>Loading...</span>");
+    template = ko.observable("<i class='icon-spinner icon-spin icon-large'></i>");
 
     loaded = false;
 
@@ -50,7 +52,7 @@ class HtmlTemplate {
         }
     }
 
-    loadTemplate = function () {       
+    loadTemplate = function () : void {       
         $.get(this.templateKey,(t) => {
             this.template(t);
         });        
