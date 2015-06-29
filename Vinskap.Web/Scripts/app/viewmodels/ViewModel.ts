@@ -1,13 +1,15 @@
 ﻿
 class ViewModel {
 
-    public View: string;
+    View: KnockoutComputed<string>;
+    ViewName: KnockoutObservable<string>;
 
     constructor(viewName: string) {
-        this.View = "/Scripts/app/views/" + viewName + ".html";
+        this.ViewName = ko.observable(viewName);
+        this.View = ko.computed(() => "/Scripts/app/views/" + this.ViewName() + ".html");
     }
 
     ViewFor = function (element: ViewModel) : string {
-        return element.View;
+        return element.View();
     }
 }

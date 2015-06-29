@@ -16,9 +16,12 @@ namespace Vinskap.Web.App_Start
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                         "~/Scripts/lib/knockout/knockout-3.3.0.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/lib/bootstrap/bootstrap.min.js", "~/Scripts/lib/bootstrap/bootstrap3-typeahead.min.js", "~/Scripts/lib/bootstrap/knockout-bootstrap.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/app").Include("~/Scripts/app/app.js"));
 
-            bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/Stylesheets/bootstrap/bootstrap.less"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/Stylesheets/bootstrap/bootstrap.min.css"));
         }
     }
 }

@@ -112,6 +112,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Stylesheets\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\Stylesheets\bootstrap\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
@@ -121,23 +123,15 @@
     <Content Include="Scripts\app\views\AlphaView.html" />
     <Content Include="Scripts\app\views\BetaView.html" />
     <Content Include="Scripts\app\views\ChildView.html" />
+    <Content Include="Scripts\app\views\LoadingView.html" />
     <Content Include="Scripts\app\views\ShellView.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\lib\bootstrap\bootstrap-alert.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-button.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-carousel.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-collapse.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-dropdown.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-modal.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-popover.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-scrollspy.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-tab.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-tooltip.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-transition.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap-typeahead.js" />
-    <None Include="Properties\PublishProfiles\ToFileSystem.pubxml" />
+    <None Include="Properties\PublishProfiles\deploy.pubxml" />
     <None Include="Scripts\lib\jquery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap3-typeahead.min.js" />
+    <Content Include="Scripts\lib\bootstrap\knockout-bootstrap.min.js" />
     <Content Include="Scripts\lib\jquery\jquery-2.1.4.js" />
     <Content Include="Scripts\lib\jquery\jquery-2.1.4.min.js" />
     <Content Include="Scripts\lib\knockout\knockout-3.3.0.debug.js" />
@@ -160,41 +154,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\Stylesheets\bootstrap\wells.less" />
-    <Content Include="Content\Stylesheets\bootstrap\variables.less" />
-    <Content Include="Content\Stylesheets\bootstrap\utilities.less" />
-    <Content Include="Content\Stylesheets\bootstrap\type.less" />
-    <Content Include="Content\Stylesheets\bootstrap\tooltip.less" />
-    <Content Include="Content\Stylesheets\bootstrap\thumbnails.less" />
-    <Content Include="Content\Stylesheets\bootstrap\tables.less" />
-    <Content Include="Content\Stylesheets\bootstrap\sprites.less" />
-    <Content Include="Content\Stylesheets\bootstrap\scaffolding.less" />
-    <Content Include="Content\Stylesheets\bootstrap\responsive.less" />
-    <Content Include="Content\Stylesheets\bootstrap\reset.less" />
-    <Content Include="Content\Stylesheets\bootstrap\progress-bars.less" />
-    <Content Include="Content\Stylesheets\bootstrap\popovers.less" />
-    <Content Include="Content\Stylesheets\bootstrap\pagination.less" />
-    <Content Include="Content\Stylesheets\bootstrap\pager.less" />
-    <Content Include="Content\Stylesheets\bootstrap\navs.less" />
-    <Content Include="Content\Stylesheets\bootstrap\navbar.less" />
-    <Content Include="Content\Stylesheets\bootstrap\modals.less" />
-    <Content Include="Content\Stylesheets\bootstrap\mixins.less" />
-    <Content Include="Content\Stylesheets\bootstrap\layouts.less" />
-    <Content Include="Content\Stylesheets\bootstrap\labels.less" />
-    <Content Include="Content\Stylesheets\bootstrap\hero-unit.less" />
-    <Content Include="Content\Stylesheets\bootstrap\grid.less" />
-    <Content Include="Content\Stylesheets\bootstrap\forms.less" />
-    <Content Include="Content\Stylesheets\bootstrap\dropdowns.less" />
-    <Content Include="Content\Stylesheets\bootstrap\component-animations.less" />
-    <Content Include="Content\Stylesheets\bootstrap\code.less" />
-    <Content Include="Content\Stylesheets\bootstrap\close.less" />
-    <Content Include="Content\Stylesheets\bootstrap\carousel.less" />
-    <Content Include="Content\Stylesheets\bootstrap\buttons.less" />
-    <Content Include="Content\Stylesheets\bootstrap\button-groups.less" />
-    <Content Include="Content\Stylesheets\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\Stylesheets\bootstrap\bootstrap.less" />
-    <Content Include="Content\Stylesheets\bootstrap\alerts.less" />
-    <Content Include="Content\Stylesheets\bootstrap\accordion.less" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
