@@ -22,6 +22,22 @@ namespace Vinskap.Services.Repositories
             Producers = new EntityCache<Producer>();
             Wines = new EntityCache<Wine>();
             Bottles = new EntityCache<Bottle>();
+
+            var producer = new Producer("Dummy");
+            var white = new Kind("Lugana", WineType.WHITE);
+            var red = new Kind("Chianti classico", WineType.RED);
+            var rosee = new Kind("Chiaretto", WineType.ROSEE);
+            var wines = new List<Wine> {
+                new Wine("Test red", red, producer, 11.5),
+                new Wine("Second red", red, producer, 13),
+                new Wine("White wine", white, producer, 9.5),
+                new Wine("Roseè", rosee, producer, 10)
+            };
+
+            foreach(var wine in wines)
+            {
+                Wines.Add(wine);
+            }
         }
 
         public EntityCache<T> Get<T>()

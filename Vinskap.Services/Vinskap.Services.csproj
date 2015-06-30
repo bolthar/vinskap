@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,7 @@
     <Compile Include="ExecutionContext.cs" />
     <Compile Include="Functional\Maybe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\SearchWine.cs" />
     <Compile Include="Repositories\CellarRepository.cs" />
     <Compile Include="Repositories\EntityCache.cs" />
     <Compile Include="Repositories\EventLog.cs" />
