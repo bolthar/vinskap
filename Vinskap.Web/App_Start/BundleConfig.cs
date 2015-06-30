@@ -22,7 +22,7 @@ namespace Vinskap.Web.App_Start
             bundles.Add(new ScriptBundle("~/bundles/app").Include("~/Scripts/app/app.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/Stylesheets/bootstrap/bootstrap.min.css"));
-            bundles.Add(new StyleBundle("~/Content/app").Include("~/Content/Stylesheets/app.min.css"));
+            bundles.Add(new StyleBundle("~/Content/app").Include("~/Content/Stylesheets/app.less"));
         }
     }
 }

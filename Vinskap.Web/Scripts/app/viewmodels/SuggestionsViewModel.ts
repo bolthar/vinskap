@@ -10,10 +10,11 @@ class SuggestionsViewModel extends ViewModel {
     }
 
     SearchFor = function (searchTerm: string): void {
-        $.get("/api/wine?" + searchTerm,(data) => {
-            var newEntries = $.map(data,(x) => new SuggestionEntryViewModel(new Wine(x)));
-            this.Entries.clear();
-            this.Entries(newEntries);
-        });
+        this.Entries.removeAll();
+        if (searchTerm.length > 1) {
+            $.get("/api/wine?searchTerm=" + searchTerm,(data) => {
+                $.each(data,(i) => this.Entries.push(new SuggestionEntryViewModel(new Wine(data[i]), i == 0)));
+            });
+        }
     }
 } 

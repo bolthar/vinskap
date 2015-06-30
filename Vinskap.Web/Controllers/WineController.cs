@@ -13,9 +13,9 @@ namespace Vinskap.Web.Controllers
     public class WineController : ApiController
     {
         [HttpGet]
-        public IEnumerable<WineDTO> Index()
+        public IEnumerable<WineDTO> Index(string searchTerm)
         {
-            var result = new SearchWine("s").Run();
+            var result = new SearchWine(searchTerm).Run();
             return result.Select(x => WineDTO.From(x));
         }
     }

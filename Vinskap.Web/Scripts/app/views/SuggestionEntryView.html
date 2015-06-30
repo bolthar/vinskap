@@ -1,7 +1,7 @@
 ﻿
-<div data-bind="class: entryClass">
-    <strong>Palazzo della torre</strong> 
-    <span class="smallText"></span>
+<div data-bind="css: entryClass">
+    <strong data-bind="text: Title()"></strong>
+    <span class="smallText" data-bind="text: FirstDetail()"></span>
     <span>-</span>
-    <span class="smallText"></span>
+    <span class="smallText" data-bind="text: SecondDetail()"></span>
 </div>

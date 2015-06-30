@@ -14,19 +14,19 @@ namespace Vinskap.Web.Transport
         public string Name { get; private set; }
 
         [DataMember]
-        public WineType Type { get; private set; }
+        public string Type { get; private set; }
 
         public static KindDTO From(Kind kind)
         {
             var dto = new KindDTO();
             dto.Name = kind.Name;
-            dto.Type = kind.Type;
+            dto.Type = kind.Type.ToString().ToLower();
             return dto;
         }
 
         public Kind To()
         {
-            return new Kind(Name, Type);
+            return new Kind(Name, (WineType)Enum.Parse(typeof(WineType), this.Type));
         }
     }
 }
