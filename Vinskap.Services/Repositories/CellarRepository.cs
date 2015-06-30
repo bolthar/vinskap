@@ -38,6 +38,11 @@ namespace Vinskap.Services.Repositories
             {
                 Wines.Add(wine);
             }
+
+            Producers.Add(producer);
+            Kinds.Add(red);
+            Kinds.Add(white);
+            Kinds.Add(rosee);
         }
 
         public EntityCache<T> Get<T>()

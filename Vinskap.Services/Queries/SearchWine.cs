@@ -23,8 +23,12 @@ namespace Vinskap.Services.Queries
                 .Where(x => x.Name.ToLower().StartsWith(_searchTerm));
             var contain = CellarRepository.Instance.Wines
                 .Where(x => x.Name.ToLower().Contains(_searchTerm));
+            var fromKind = CellarRepository.Instance.Wines
+                .Where(x => new SearchKind(_searchTerm).Run().Contains(x.Kind));
+            var fromProducer = CellarRepository.Instance.Wines
+                .Where(x => new SearchProducer(_searchTerm).Run().Contains(x.Producer));
 
-            return startWith.Union(contain).Distinct();
+            return startWith.Union(contain).Union(fromKind).Union(fromProducer).Distinct();
         }
     }
 }

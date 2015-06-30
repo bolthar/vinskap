@@ -20,5 +20,23 @@ class WineViewModel extends ViewModel {
 
     Suggestions = ko.observable<SuggestionsViewModel>();
 
-    
+    OnKeyDown = (d, e) => {
+        if (e.keyCode == 38) {
+            this.Suggestions().MoveUp();
+            return false;
+        }
+
+        if (e.keyCode == 40) {
+            this.Suggestions().MoveDown();
+            return false;
+        }
+
+        if (e.keyCode == 13) {
+            this.Suggestions().Choose();
+            return false;
+        }
+
+        return true;
+    };
+
 } 
