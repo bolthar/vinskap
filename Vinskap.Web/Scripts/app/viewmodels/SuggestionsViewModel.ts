@@ -7,18 +7,24 @@ class SuggestionsViewModel<T> extends ViewModel {
     factory: (entity: T) => ViewModel;
     source: (searchTerm: string, onNewItem: (data: T) => void) => void;
     onChoice: (entry: T) => void;
+    searchText: KnockoutObservable<string>;
 
     constructor(source: (searchTerm: string, onNewItem: (data: T) => void) => void, factory: (entity: T) => ViewModel, onChoice: (entry: T) => void) {
         super("SuggestionsView");
+        this.searchText = ko.observable("")
+        this.searchText.extend({ rateLimit: 500 });
+        this.searchText.subscribe((value) => {
+            this.OnValueChanged(value);
+        });
         this.factory = factory;
         this.source = source;
         this.onChoice = onChoice;
     }
 
-    SearchFor = (searchTerm: string) => {
+    SearchFor = (st: string) => {
         this.Entries.removeAll();
-        if (searchTerm.length > 1) {
-            this.source(searchTerm,(data) => {
+        if (st.length > 1) {
+            this.source(st,(data) => {
                 this.Entries.push(new SuggestionEntryViewModel<T>(this.factory(data), data, this.Entries().length == 0, this.EntrySelected, this.EntryChosen));
             });
         }
@@ -71,4 +77,27 @@ class SuggestionsViewModel<T> extends ViewModel {
             }
         });
     }
+
+    OnKeyDown = (d, e) => {
+        if (e.keyCode == 38) {
+            this.MoveUp();
+            return false;
+        }
+
+        if (e.keyCode == 40) {
+            this.MoveDown();
+            return false;
+        }
+
+        if (e.keyCode == 13 || e.keyCode == 9) {
+            this.Choose();
+            return false;
+        }
+
+        return true;
+    };
+
+    OnValueChanged = function (value: string): void {
+        this.SearchFor(value);
+    };
 } 
