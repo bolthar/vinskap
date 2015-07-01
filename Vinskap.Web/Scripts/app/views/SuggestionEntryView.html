@@ -1,7 +1,4 @@
 ﻿
 <div data-bind="css: entryClass, event: { mouseover: Select, click: Choose }">
-    <strong data-bind="text: Title()"></strong>
-    <span class="smallText" data-bind="text: FirstDetail()"></span>
-    <span>-</span>
-    <span class="smallText" data-bind="text: SecondDetail()"></span>
+    <div data-bind="template: { name : ViewFor, data : viewModel }"></div>
 </div>

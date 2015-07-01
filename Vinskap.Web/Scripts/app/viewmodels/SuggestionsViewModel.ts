@@ -1,30 +1,37 @@
 ﻿/// <reference path="./SuggestionEntryViewModel.ts" />
 /// <reference path="../domain/Wine.ts" />
 
-class SuggestionsViewModel extends ViewModel {
+class SuggestionsViewModel<T> extends ViewModel {
 
-    Entries = ko.observableArray<SuggestionEntryViewModel>();
+    Entries = ko.observableArray<SuggestionEntryViewModel<T>>();
+    factory: (entity: T) => ViewModel;
+    source: (searchTerm: string, onNewItem: (data: T) => void) => void;
+    onChoice: (entry: T) => void;
 
-    constructor() {
+    constructor(source: (searchTerm: string, onNewItem: (data: T) => void) => void, factory: (entity: T) => ViewModel, onChoice: (entry: T) => void) {
         super("SuggestionsView");
+        this.factory = factory;
+        this.source = source;
+        this.onChoice = onChoice;
     }
 
-    SearchFor = function (searchTerm: string): void {
+    SearchFor = (searchTerm: string) => {
         this.Entries.removeAll();
         if (searchTerm.length > 1) {
-            $.get("/api/wine?searchTerm=" + searchTerm,(data) => {
-                $.each(data,(i) => this.Entries.push(new SuggestionEntryViewModel(new Wine(data[i]), i == 0, this.EntrySelected, this.EntryChosen)));
+            this.source(searchTerm,(data) => {
+                this.Entries.push(new SuggestionEntryViewModel<T>(this.factory(data), data, this.Entries().length == 0, this.EntrySelected, this.EntryChosen));
             });
         }
     }
 
-    EntrySelected = (entry: SuggestionEntryViewModel) => {
+    EntrySelected = (entry: SuggestionEntryViewModel<T>) => {
         $.each(this.Entries(),(i, vm) => {
             vm.selected(vm == entry);
         });
     }
 
-    EntryChosen = (entry: Wine) => {
+    EntryChosen = (entry: T) => {
+        this.onChoice(entry);
     }
 
     MoveDown = () => {
@@ -58,6 +65,10 @@ class SuggestionsViewModel extends ViewModel {
     }
 
     Choose = () => {
-
+        $.each(this.Entries(),(i, vm) => {
+            if (vm.selected()) {
+                this.onChoice(vm.entity);
+            }
+        });
     }
 } 

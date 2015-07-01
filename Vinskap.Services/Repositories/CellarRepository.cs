@@ -23,15 +23,27 @@ namespace Vinskap.Services.Repositories
             Wines = new EntityCache<Wine>();
             Bottles = new EntityCache<Bottle>();
 
-            var producer = new Producer("Dummy");
+            var allegrini = new Producer("Allegrini");
+            var sartori = new Producer("Sartori");
+            var cecchi = new Producer("Cecchi");
+            var milesi = new Producer("Milesi");
+            var casanuova = new Producer("Case nuove");
+            
             var white = new Kind("Lugana", WineType.WHITE);
             var red = new Kind("Chianti classico", WineType.RED);
             var rosee = new Kind("Chiaretto", WineType.ROSEE);
+            var veronese = new Kind("Veronese", WineType.RED);
+            var valpolicella = new Kind("Valpolicella", WineType.RED);
+
             var wines = new List<Wine> {
-                new Wine("Test red", red, producer, 11.5),
-                new Wine("Second red", red, producer, 13),
-                new Wine("White wine", white, producer, 9.5),
-                new Wine("Roseè", rosee, producer, 10)
+                new Wine("Palazzo della torre", veronese, allegrini, 11.5),
+                new Wine("", valpolicella, allegrini, 13.5),
+                new Wine("", valpolicella, sartori, 14),
+                new Wine("White wine", white, cecchi, 9.5),
+                new Wine("", red, cecchi,11.5),
+                new Wine("Ticciaia", red, casanuova, 12.5),
+                new Wine("Roseè", rosee, milesi, 10),
+                new Wine(string.Empty, red, milesi, 10)
             };
 
             foreach(var wine in wines)
@@ -39,10 +51,16 @@ namespace Vinskap.Services.Repositories
                 Wines.Add(wine);
             }
 
-            Producers.Add(producer);
+            Producers.Add(allegrini);
+            Producers.Add(sartori);
+            Producers.Add(cecchi);
+            Producers.Add(milesi);
+            Producers.Add(casanuova);
             Kinds.Add(red);
             Kinds.Add(white);
             Kinds.Add(rosee);
+            Kinds.Add(veronese);
+            Kinds.Add(valpolicella);
         }
 
         public EntityCache<T> Get<T>()
