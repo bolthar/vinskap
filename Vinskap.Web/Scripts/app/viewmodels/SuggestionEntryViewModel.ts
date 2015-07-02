@@ -6,13 +6,12 @@ class SuggestionEntryViewModel<T> extends ViewModel {
     entryClass: KnockoutComputed<string>;
 
     viewModel: ViewModel;
-    onChoose: (entity: T) => void;
+    onChoose: () => void;
     onSelect: (entry: SuggestionEntryViewModel<T>) => void;
 
-    constructor(viewModel: ViewModel, entity: T, isSelected: boolean, onSelect: (entry: SuggestionEntryViewModel<T>) => void, onChoose: (entity: T) => void) {
+    constructor(viewModel: ViewModel, isSelected: boolean, onSelect: (entry: SuggestionEntryViewModel<T>) => void, onChoose: () => void) {
         super("SuggestionEntryView");
         this.viewModel = viewModel;
-        this.entity = entity;
         this.selected = ko.observable<boolean>(isSelected);      
         this.entryClass = ko.pureComputed(() => {
             var classes = [];
@@ -22,7 +21,7 @@ class SuggestionEntryViewModel<T> extends ViewModel {
             return classes.join(" ");
         });  
         this.onChoose = onChoose;
-        this.onSelect = onSelect;
+        this.onSelect = onSelect;        
     }
 
     Select = () => {
@@ -30,6 +29,6 @@ class SuggestionEntryViewModel<T> extends ViewModel {
     }
 
     Choose = () => {
-        this.onChoose(this.entity);
+        this.onChoose();
     }
 } 

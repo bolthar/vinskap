@@ -1,4 +1,4 @@
 ﻿
-<div data-bind="css: entryClass, event: { mouseover: Select, click: Choose }">
+<div class="entry" data-bind="css: [ viewModel.ContainerClass(), entryClass() ].join(' '), event: { mouseover: Select, click: Choose }">
     <div data-bind="template: { name : ViewFor, data : viewModel }"></div>
 </div>

@@ -3,15 +3,22 @@
 
 class Wine {
 
-    public Name: string;
-    public Kind: Kind;
-    public Producer: Producer;
-    public Alcohol: number;
+    constructor(public Name: string, public Kind: Kind, public Producer: Producer, public Alcohol: number) {        
+    }
 
-    constructor(json: any) {
-        this.Name = json["Name"].toString();
-        this.Kind = new Kind(json["Kind"]);
-        this.Producer = new Producer(json["Producer"]);
-        this.Alcohol = +json["Alcohol"];
+    static fromJson(json: any) {
+        return new Wine(
+            json["Name"],
+            Kind.fromJson(json["Kind"]),
+            Producer.fromJson(json["Producer"]),
+            json["Alcohol"]);
+    }
+
+    static fromSearchTerm(term: string) {
+        return new Wine(
+            term,
+            null,
+            null,
+            0);
     }
 } 

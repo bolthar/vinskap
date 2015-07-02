@@ -26,7 +26,7 @@ class WineSuggestionViewModel extends ViewModel {
         return this.wine.Producer.Name;
     }
 
-    EntryClass = function (): string {
-        return "entry " + this.wine.Kind.Type;
+    ContainerClass = function (): string {
+        return this.wine.Kind.Type;
     }
 }

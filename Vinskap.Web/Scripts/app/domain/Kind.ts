@@ -1,11 +1,10 @@
 ﻿
 class Kind {
 
-    public Name: string;
-    public Type: string;
+    constructor(public Name: string, public Type: string) {
+    }
 
-    constructor(json: any) {
-        this.Name = json["Name"].toString();
-        this.Type = json["Type"].toString();
+    static fromJson(json: any) {
+        return new Kind(json["Name"].toString(), json["Type"].toString());
     }
 } 

@@ -125,11 +125,13 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\AlphaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SearchViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SelectionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionCreateViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionEntryViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionsViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
     <Content Include="Scripts\app\views\SearchView.html" />
     <Content Include="Scripts\app\views\SelectionView.html" />
+    <Content Include="Scripts\app\views\SuggestionCreateView.html" />
     <Content Include="Scripts\app\views\SuggestionEntryView.html" />
     <Content Include="Scripts\app\views\SuggestionsView.html" />
     <Content Include="Scripts\app\views\AlphaView.html" />

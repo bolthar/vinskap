@@ -1,9 +1,10 @@
 ﻿
 class Producer {
 
-    public Name: string;
+    constructor(public Name: string) {
+    }
 
-    constructor(json: any) {
-        this.Name = json["Name"].toString();
+    static fromJson(json: any) {
+        return new Producer(json["Name"].toString());
     }
 } 

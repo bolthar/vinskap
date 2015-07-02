@@ -11,24 +11,32 @@ class SearchViewModel extends ViewModel {
 
     constructor() {
         super("SearchView");
+        this.CurrentState = ko.observable<ViewModel>();
+        this.setSuggestions();
+    }
+
+    OnSelected = (wine: Wine | string | any) => {
+        if (wine instanceof Wine) {
+            this.selection = new SelectionViewModel(wine, new WineSuggestionViewModel(wine), this.OnCleared);
+            this.CurrentState(this.selection);
+        } else if (typeof (wine) === "string") {
+                        
+        }        
+    }
+
+    OnCleared = () => {
+        this.setSuggestions();
+    }
+
+    setSuggestions = () => {
         this.suggestions = new SuggestionsViewModel<Wine>(
             (searchTerm, callback) => {
-                $.get("/api/wine?searchTerm=" + searchTerm, (data) => {
-                    $.each(data,(i) => callback(new Wine(data[i])))
+                $.get("/api/wine?searchTerm=" + searchTerm,(data) => {
+                    callback($.map(data,(i) => Wine.fromJson(i)));
                 });
             },
             (e) => new WineSuggestionViewModel(e),
             (e) => this.OnSelected(e));
-
-        this.CurrentState = ko.observable(this.suggestions);               
-    }
-
-    OnSelected = (wine: Wine) => {
-        this.selection = new SelectionViewModel(wine, new WineSuggestionViewModel(wine), this.OnCleared);
-        this.CurrentState(this.selection);
-    }
-
-    OnCleared = () => {
         this.CurrentState(this.suggestions);
     }
 } 
