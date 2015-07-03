@@ -1,18 +1,20 @@
 ﻿
 class NumericEditorViewModel extends ViewModel {
 
-    value: KnockoutObservable<number>;
-    defaultValue: number;
-    defaultDelta: number;
+    value: number;
+    textValue: KnockoutObservable<string>;
+    Label: KnockoutObservable<string>;
+    Glyph: KnockoutObservable<string>;
 
-    constructor(defaultValue: number, defaultDelta = 1) {
+    constructor(label: string, private defaultValue: number, private defaultDelta = 1, private precision = 0, glyph = "") {
         super("NumericEditorView");
-        this.defaultValue = defaultValue;
-        this.value = ko.observable(defaultValue);
-        this.value.subscribe((value) => {
+        this.textValue = ko.observable(this.defaultValue.toString());
+        this.value = this.defaultValue;
+        this.textValue.subscribe((value) => {
             this.onValueChanged(value);
         });
-        this.defaultDelta = defaultDelta;
+        this.Label = ko.observable(label);
+        this.Glyph = ko.observable(glyph);
     }
 
     Plus() {
@@ -47,14 +49,13 @@ class NumericEditorViewModel extends ViewModel {
     }
 
     changeValue(delta: number){
-        this.value(this.value() + (delta * this.defaultDelta));
+        this.value = this.value + (delta * this.defaultDelta);
+        this.textValue(this.value.toFixed(this.precision))
     }
 
-    onValueChanged(value: number) {
-        if (isNaN(Number(value))) {
-            this.value(this.defaultValue);
-        } else {
-            this.value(Number(value));
+    onValueChanged(value: string) {
+        if (!isNaN(Number(value))) {
+            this.value = Number(Number(value).toFixed(this.precision));
         }
     }
 

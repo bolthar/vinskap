@@ -14,7 +14,7 @@ namespace Vinskap.Services.Queries
 
         public SearchProducer(string searchTerm)
         {
-            _searchTerm = searchTerm;
+            _searchTerm = searchTerm.ToLower();
         }
 
         public IEnumerable<Producer> Run()

@@ -91,7 +91,7 @@ class SuggestionsViewModel<T> extends ViewModel {
 
         if (e.keyCode == 13 || e.keyCode == 9) {
             this.Choose();
-            return false;
+            return true;
         }
 
         return true;

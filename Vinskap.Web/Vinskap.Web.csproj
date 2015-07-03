@@ -121,6 +121,7 @@
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\EditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindSuggestionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\NumericEditorViewModel.ts" />
@@ -132,6 +133,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionEntryViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionsViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
+    <Content Include="Scripts\app\views\EditorView.html" />
     <Content Include="Scripts\app\views\ProducerSuggestionView.html" />
     <Content Include="Scripts\app\views\ProducerEditorView.html" />
     <Content Include="Scripts\app\views\KindEditorView.html" />

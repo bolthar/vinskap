@@ -16,8 +16,8 @@ class BottleEditorViewModel extends ViewModel {
             (e) => new WineSuggestionViewModel(e),
             (st) => new WineEditorViewModel(st)
         ));        
-        this.year = new NumericEditorViewModel(2012, 1);
-        this.price = new NumericEditorViewModel(5, 0.1);
+        this.year = new NumericEditorViewModel("Year", 2012, 1);
+        this.price = new NumericEditorViewModel("Price", 5, 0.1, 2, "€");
     }
 
 

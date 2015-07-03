@@ -35,6 +35,6 @@ class WineEditorViewModel extends ViewModel {
             (e) => new ProducerSuggestionViewModel(e),
             (st) => new ProducerEditorViewModel(st)
             ));
-        this.alcohol = new NumericEditorViewModel(12.5, 0.5);
+        this.alcohol = new NumericEditorViewModel("Alcohol", 12.5, 0.5, 1, "%");
     }
 } 

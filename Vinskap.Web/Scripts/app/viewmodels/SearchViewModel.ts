@@ -1,5 +1,6 @@
 ﻿/// <reference path="./SuggestionsViewModel.ts" />
 /// <reference path="./SelectionViewModel.ts" />
+/// <reference path="./EditorViewModel.ts" />
 /// <reference path="./WineEditorViewModel.ts" />
 /// <reference path="./WineSuggestionViewModel.ts" />
 
@@ -23,7 +24,7 @@ class SearchViewModel<T> extends ViewModel {
 
     OnSelected = (entity: T | string | any) => {
         if (typeof (entity) === "string") {
-            this.editor = this.editorFactory(entity);
+            this.editor = new EditorViewModel(this.editorFactory(entity), this.OnCleared);
             this.CurrentState(this.editor);
         } else {
             this.selection = new SelectionViewModel<T>(entity, this.templateFactory(entity), this.OnCleared);

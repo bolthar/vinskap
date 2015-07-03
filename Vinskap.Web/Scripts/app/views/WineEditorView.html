@@ -1,19 +1,18 @@
 ﻿
-<div id="wine-editor">
-    <div class=" form-group">
-        <label for="wineName">Name</label>
-        <input type="text" class="form-control" id="wineName" data-bind="textInput: name" />
-    </div>
-    <div class="form-group">
-        <label for="searchField">Kind</label>
-        <div data-bind="template: { name: ViewFor, data: kind }"></div>
-    </div>
-    <div class="form-group">
-        <label for="searchField">Producer</label>
-        <div data-bind="template: { name: ViewFor, data: producer }"></div>
-    </div>
-    <div class="form-group">
-        <label for="wineAlcohol">Alcohol</label>
-        <div data-bind="template: { name : ViewFor, data : alcohol}"></div>
+<div class="panel panel-default">
+    <div style="background:#EEE" class="panel-body">
+        <div class=" form-group">
+            <label for="wineName">Name</label>
+            <input type="text" class="form-control" id="wineName" data-bind="textInput: name" />
+        </div>
+        <div class="form-group">
+            <label for="searchField">Kind</label>
+            <div data-bind="template: { name: ViewFor, data: kind }"></div>
+        </div>
+        <div class="form-group">
+            <label for="searchField">Producer</label>
+            <div data-bind="template: { name: ViewFor, data: producer }"></div>
+        </div>
+        <div data-bind="template: { name: ViewFor, data: alcohol }"></div>        
     </div>
 </div>
