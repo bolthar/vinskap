@@ -121,14 +121,22 @@
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
-    <TypeScriptCompile Include="Scripts\app\viewmodels\BetaViewModel.ts" />
-    <TypeScriptCompile Include="Scripts\app\viewmodels\AlphaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\KindEditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\KindSuggestionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\NumericEditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\ProducerEditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\ProducerSuggestionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SearchViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SelectionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionCreateViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionEntryViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionsViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
+    <Content Include="Scripts\app\views\ProducerSuggestionView.html" />
+    <Content Include="Scripts\app\views\ProducerEditorView.html" />
+    <Content Include="Scripts\app\views\KindEditorView.html" />
+    <Content Include="Scripts\app\views\KindSuggestionView.html" />
+    <Content Include="Scripts\app\views\NumericEditorView.html" />
     <Content Include="Scripts\app\views\SearchView.html" />
     <Content Include="Scripts\app\views\SelectionView.html" />
     <Content Include="Scripts\app\views\SuggestionCreateView.html" />
@@ -144,8 +152,9 @@
     <Content Include="Content\Stylesheets\app.less" />
     <None Include="Properties\PublishProfiles\deploy.pubxml" />
     <None Include="Scripts\lib\jquery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\app\views\WineEditorView.html" />
     <Content Include="Scripts\app\views\WineSuggestionView.html" />
-    <Content Include="Scripts\app\views\WineView.html" />
+    <Content Include="Scripts\app\views\BottleEditorView.html" />
     <Content Include="Scripts\lib\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\lib\jquery\jquery-2.1.4.js" />
     <Content Include="Scripts\lib\jquery\jquery-2.1.4.min.js" />
@@ -159,6 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KindController.cs" />
+    <Compile Include="Controllers\ProducerController.cs" />
     <Compile Include="Controllers\WineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,10 +197,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
-    <TypeScriptCompile Include="Scripts\app\viewmodels\ChildViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ShellViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\WineEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\WineSuggestionViewModel.ts" />
-    <TypeScriptCompile Include="Scripts\app\viewmodels\WineViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\BottleEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>

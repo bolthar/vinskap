@@ -1,26 +1,33 @@
 ﻿/// <reference path="./SuggestionsViewModel.ts" />
 /// <reference path="./SelectionViewModel.ts" />
+/// <reference path="./WineEditorViewModel.ts" />
 /// <reference path="./WineSuggestionViewModel.ts" />
 
-class SearchViewModel extends ViewModel {
+class SearchViewModel<T> extends ViewModel {
 
     CurrentState: KnockoutObservable<ViewModel>;
 
-    suggestions: SuggestionsViewModel<Wine>;
-    selection: SelectionViewModel<Wine>;
+    suggestions: SuggestionsViewModel<T>;
+    selection: SelectionViewModel<T>;
+    editor: ViewModel;
 
-    constructor() {
+    constructor(
+            private searchFunction: (searchTerm: string, onCompleted: (data: Array<T>) => void) => void,
+            private templateFactory: (entity: T) => ViewModel,
+            private editorFactory: (entity: string) => ViewModel)
+    {
         super("SearchView");
         this.CurrentState = ko.observable<ViewModel>();
         this.setSuggestions();
     }
 
-    OnSelected = (wine: Wine | string | any) => {
-        if (wine instanceof Wine) {
-            this.selection = new SelectionViewModel(wine, new WineSuggestionViewModel(wine), this.OnCleared);
+    OnSelected = (entity: T | string | any) => {
+        if (typeof (entity) === "string") {
+            this.editor = this.editorFactory(entity);
+            this.CurrentState(this.editor);
+        } else {
+            this.selection = new SelectionViewModel<T>(entity, this.templateFactory(entity), this.OnCleared);
             this.CurrentState(this.selection);
-        } else if (typeof (wine) === "string") {
-                        
         }        
     }
 
@@ -29,14 +36,7 @@ class SearchViewModel extends ViewModel {
     }
 
     setSuggestions = () => {
-        this.suggestions = new SuggestionsViewModel<Wine>(
-            (searchTerm, callback) => {
-                $.get("/api/wine?searchTerm=" + searchTerm,(data) => {
-                    callback($.map(data,(i) => Wine.fromJson(i)));
-                });
-            },
-            (e) => new WineSuggestionViewModel(e),
-            (e) => this.OnSelected(e));
+        this.suggestions = new SuggestionsViewModel<T>(this.searchFunction, this.templateFactory, this.OnSelected);
         this.CurrentState(this.suggestions);
     }
 } 

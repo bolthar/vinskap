@@ -7,4 +7,8 @@ class Kind {
     static fromJson(json: any) {
         return new Kind(json["Name"].toString(), json["Type"].toString());
     }
+
+    static fromSearchTerm(term: string) {
+        return new Kind(term, "red");
+    }
 } 

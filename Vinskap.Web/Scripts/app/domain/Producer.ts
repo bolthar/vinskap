@@ -7,4 +7,8 @@ class Producer {
     static fromJson(json: any) {
         return new Producer(json["Name"].toString());
     }
+
+    static fromSearchTerm(term: string) {
+        return new Producer(term);
+    }
 } 
