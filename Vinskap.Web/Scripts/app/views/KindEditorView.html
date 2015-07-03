@@ -6,7 +6,11 @@
         </div>
         <div class="form-group">
             <label for="kindType">Type</label>
-            <input type="text" class="form-control" id="kindType" data-bind="textInput: wineType" />
+            <div style="margin-left:10px;" class="btn-group" role="group">
+                <button type="button" class="btn btn-default red unselected" data-bind="css: { 'selected-type': isSelected('red') }, click: function() { selectType('red') }" )>Red</button>
+                <button type="button" class="btn btn-default white unselected" data-bind="css: { 'selected-type': isSelected('white') }, click: function() { selectType('white') }" )>White</button>
+                <button type="button" class="btn btn-default rosee unselected" data-bind="css: { 'selected-type': isSelected('rosee') }, click: function() { selectType('rosee') }" )>Rosee</button>
+            </div>
         </div>
     </div>
 </div>
