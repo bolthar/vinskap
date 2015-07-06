@@ -11,7 +11,7 @@ namespace Vinskap.Web.Transport
     public class ProducerDTO
     {
         [DataMember]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         public static ProducerDTO From(Producer producer)
         {

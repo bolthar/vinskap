@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Vinskap.Domain;
+using Vinskap.Services.Commands;
+using Vinskap.Services.Commands.Vaildation;
 using Vinskap.Services.Queries;
 using Vinskap.Web.Transport;
 
@@ -16,6 +19,20 @@ namespace Vinskap.Web.Controllers
         {
             var result = new SearchProducer(searchTerm).Run();
             return result.Select(x => ProducerDTO.From(x));
+        }
+
+        [Route("api/producer/validate")]
+        [HttpPost]
+        public IEnumerable<ErrorMessage> Validate(ProducerDTO producer)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, this.ModelState));
+            }
+            var entity = producer.To();
+            var validator = new ValidateProducer(entity.Name);
+            var uniqueness = new UniquenessConstraint<Producer>(() => validator.Commit());
+            return validator.Errors.Union(uniqueness.Errors);           
         }
     }
 }

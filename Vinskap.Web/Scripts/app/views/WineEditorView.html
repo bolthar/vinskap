@@ -3,9 +3,7 @@
     <div style="background:#EEE" class="panel-body">
         <div class=" form-group">
             <label for="wineName">Name</label>
-            <input type="text" class="form-control" id="wineName" data-bind="textInput: name" />
-            <span class="smallText" style="color: red">Cannot be empty</span>
-        </div>
+            <input type="text" class="form-control" id="wineName" data-bind="textInput: name" />            
         <div class="form-group">
             <label for="searchField">Kind</label>
             <div data-bind="template: { name: ViewFor, data: kind }"></div>
