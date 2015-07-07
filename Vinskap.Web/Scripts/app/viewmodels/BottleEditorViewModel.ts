@@ -9,9 +9,10 @@ class BottleEditorViewModel extends ViewModel {
         super("BottleEditorView");
         this.Wine = ko.observable(new SearchViewModel<Wine>(
             (searchTerm, callback) => {
-                $.get("/api/wine?searchTerm=" + searchTerm,(data) => {
-                    callback($.map(data,(i) => Wine.fromJson(i)));
-                });
+                Ajax.Get<Wine>(
+                    "/api/wine?searchTerm=" + searchTerm,
+                    (data) => Wine.fromJson(data),
+                    callback);
             },
             (e) => new WineSuggestionViewModel(e),
             (st) => new WineEditorViewModel(st)

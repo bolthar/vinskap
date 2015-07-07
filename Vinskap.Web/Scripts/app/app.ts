@@ -1,5 +1,6 @@
 ﻿/// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/knockout/knockout.d.ts" />
+/// <reference path="services/ajax.ts" />
 /// <reference path="viewmodels/ViewModel.ts" />
 /// <reference path="viewmodels/ShellViewmodel.ts" />
 

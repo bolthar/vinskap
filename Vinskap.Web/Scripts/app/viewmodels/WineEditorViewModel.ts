@@ -4,7 +4,6 @@
 /// <reference path="./ProducerSuggestionViewModel.ts" />
 /// <reference path="./ProducerEditorViewModel.ts" />
 
-
 class WineEditorViewModel extends ViewModel {
 
     wine: Wine;
@@ -19,18 +18,20 @@ class WineEditorViewModel extends ViewModel {
         this.name = ko.observable(this.wine.Name);
         this.kind = ko.observable(new SearchViewModel<Kind>(
             (searchTerm, callback) => {
-                $.get("/api/kind?searchTerm=" + searchTerm,(data) => {
-                    callback($.map(data,(i) => Kind.fromJson(i)));
-                });
+                Ajax.Get<Kind>(
+                    "/api/kind?searchTerm=" + searchTerm,
+                    (data) => Kind.fromJson(data),
+                    callback);
             },
             (e) => new KindSuggestionViewModel(e),
             (st) => new KindEditorViewModel(st)
             ));
         this.producer = ko.observable(new SearchViewModel<Producer>(
             (searchTerm, callback) => {
-                $.get("/api/producer?searchTerm=" + searchTerm,(data) => {
-                    callback($.map(data,(i) => Producer.fromJson(i)));
-                });
+                Ajax.Get<Producer>(
+                    "/api/producer?searchTerm=" + searchTerm,
+                    (data) => Producer.fromJson(data),
+                    callback);
             },
             (e) => new ProducerSuggestionViewModel(e),
             (st) => new ProducerEditorViewModel(st)

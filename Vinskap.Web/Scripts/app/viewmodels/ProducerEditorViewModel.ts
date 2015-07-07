@@ -1,45 +1,35 @@
-﻿class ProducerEditorViewModel extends ViewModel {
+﻿/// <reference path="../domain/ErrorMessage.ts" />
+/// <reference path="./IValidatable.ts" />
+/// <reference path="./FieldEditorViewModel.ts" />
+/// <reference path="../Services/ValidationProvider.ts" />
+/// <reference path="../Services/ValidationHandler.ts" />
+
+class ProducerEditorViewModel extends ViewModel implements IValidatable {
 
     producer: Producer;
-    name: KnockoutObservable<string>;
+    name: FieldEditorViewModel<string>;
 
-    nameError: KnockoutObservable<string>;
     Error: KnockoutObservable<string>;
+
+    validatorProvider: ValidationProvider<Producer>;
 
     constructor(searchTerm: string) {
         super("ProducerEditorView");
-        this.nameError = ko.observable("");
-        this.Error = ko.observable("");
         this.producer = Producer.fromSearchTerm(searchTerm);
-        this.name = ko.observable(this.producer.Name);
-        this.name.subscribe((v) => {
-            this.validate();
-        });
+        this.Error = ko.observable("");
+        this.validatorProvider = new ValidationProvider(this.toProducer, this.validatables, "/api/producer/validate");
+        this.name = new FieldEditorViewModel("Name", this.producer.Name, this.validatorProvider.triggerValidation);
     }
 
-    validate() {
-        $.ajax("/api/producer/validate/", {
-            data: this.toProducerDTO(),
-            dataType: "json",
-            traditional: true,
-            contentType: 'application/json; charset=utf-8',
-            type: "POST",
-            success: (data) => {
-                this.nameError("");
-                this.Error("");
-                $.each(data, (i, d) => {
-                    if (d.Field == "Name") {
-                        this.nameError(d.Message);
-                    }
-                    if (d.Field == "") {
-                        this.Error(d.Message);
-                    }
-                });
-            }
-        });
+    toProducer = () => {
+        return new Producer(this.name.value());
     }
 
-    toProducerDTO() {
-        return JSON.stringify({ Name: this.name() });
+    validatables = (): Array<IValidatable> => {
+        return [this, this.name];
+    }
+
+    validate = (errors: Array<ErrorMessage>) => { 
+        new ValidationHandler(this.Error, "").handle(errors);
     }
 }   

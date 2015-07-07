@@ -25,12 +25,7 @@ namespace Vinskap.Web.Controllers
         [HttpPost]
         public IEnumerable<ErrorMessage> Validate(ProducerDTO producer)
         {
-            if (!ModelState.IsValid)
-            {
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, this.ModelState));
-            }
-            var entity = producer.To();
-            var validator = new ValidateProducer(entity.Name);
+            var validator = new ValidateProducer(producer.Name);
             var uniqueness = new UniquenessConstraint<Producer>(() => validator.Commit());
             return validator.Errors.Union(uniqueness.Errors);           
         }

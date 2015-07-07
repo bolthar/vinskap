@@ -118,10 +118,15 @@
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
+    <TypeScriptCompile Include="Scripts\app\domain\ErrorMessage.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\ajax.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\ValidationHandler.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\ValidationProvider.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\EditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\IValidatable.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindSuggestionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\NumericEditorViewModel.ts" />
@@ -134,6 +139,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionsViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
     <Content Include="Scripts\app\views\EditorView.html" />
+    <Content Include="Scripts\app\views\FieldEditorView.html" />
     <Content Include="Scripts\app\views\ProducerSuggestionView.html" />
     <Content Include="Scripts\app\views\ProducerEditorView.html" />
     <Content Include="Scripts\app\views\KindEditorView.html" />
@@ -203,6 +209,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\WineEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\WineSuggestionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\BottleEditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\FieldEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
   </ItemGroup>

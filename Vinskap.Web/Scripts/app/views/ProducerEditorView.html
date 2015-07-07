@@ -1,10 +1,6 @@
 ﻿<div class="panel panel-default">
-    <div style="background:#DDD" class="panel-body">
-        <div class="form-group">
-            <label for="producerName">Name</label>
-            <input type="text" class="form-control" id="producerName" data-bind="textInput: name" />
-            <span class="smallText" style="color: red" data-bind="text: nameError"></span>
-        </div>
+    <div data-bind="style: { background: Error() == '' ? '#DDD' : '#FDD' }" class="panel-body">
+        <div data-bind="template: { name: ViewFor, data: name }"></div>
         <span class="smallText" style="color: red" data-bind="text: Error"></span>
     </div>
 </div>

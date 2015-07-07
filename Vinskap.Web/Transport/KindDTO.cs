@@ -26,7 +26,7 @@ namespace Vinskap.Web.Transport
 
         public Kind To()
         {
-            return new Kind(Name, (WineType)Enum.Parse(typeof(WineType), this.Type));
+            return new Kind(Name, (WineType)Enum.Parse(typeof(WineType), this.Type.ToUpper()));
         }
     }
 }
