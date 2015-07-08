@@ -11,10 +11,10 @@ namespace Vinskap.Web.Transport
     public class KindDTO
     {
         [DataMember]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [DataMember]
-        public string Type { get; private set; }
+        public string Type { get; set; }
 
         public static KindDTO From(Kind kind)
         {

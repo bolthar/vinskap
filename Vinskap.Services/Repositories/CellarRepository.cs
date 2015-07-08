@@ -23,7 +23,7 @@ namespace Vinskap.Services.Repositories
             Wines = new EntityCache<Wine>();
             Bottles = new EntityCache<Bottle>();
 
-            var allegrini = new Producer("Allegrini");
+            /*var allegrini = new Producer("Allegrini");
             var sartori = new Producer("Sartori");
             var cecchi = new Producer("Cecchi");
             var milesi = new Producer("Milesi");
@@ -60,7 +60,7 @@ namespace Vinskap.Services.Repositories
             Kinds.Add(white);
             Kinds.Add(rosee);
             Kinds.Add(veronese);
-            Kinds.Add(valpolicella);
+            Kinds.Add(valpolicella);*/
         }
 
         public EntityCache<T> Get<T>()

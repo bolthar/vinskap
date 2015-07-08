@@ -11,16 +11,16 @@ namespace Vinskap.Web.Transport
     public class WineDTO
     {
         [DataMember]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [DataMember]
-        public KindDTO Kind { get; private set; }
+        public KindDTO Kind { get; set; }
 
         [DataMember]
-        public ProducerDTO Producer { get; private set; }
+        public ProducerDTO Producer { get; set; }
 
         [DataMember]
-        public double Alcohol { get; private set; }
+        public double Alcohol { get; set; }
 
         public static WineDTO From(Wine wine)
         {
@@ -28,13 +28,13 @@ namespace Vinskap.Web.Transport
             dto.Name = wine.Name;
             dto.Kind = KindDTO.From(wine.Kind);
             dto.Producer = ProducerDTO.From(wine.Producer);
-            dto.Alcohol = wine.Alcohol;
+            dto.Alcohol = wine.Alcohol;            
             return dto;
         }
 
         public Wine To()
         {
-            return new Wine(Name, Kind.To(), Producer.To(), Alcohol);
+            return new Wine(Name, Kind == null ? null : Kind.To(), Producer == null ? null : Producer.To(), Alcohol);
         }
     }
 }

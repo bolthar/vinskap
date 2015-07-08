@@ -1,20 +1,26 @@
 ﻿
-class NumericEditorViewModel extends ViewModel {
+class NumericEditorViewModel extends ViewModel implements IValidatable {
 
     value: number;
     textValue: KnockoutObservable<string>;
     Label: KnockoutObservable<string>;
     Glyph: KnockoutObservable<string>;
 
-    constructor(label: string, private defaultValue: number, private defaultDelta = 1, private precision = 0, glyph = "") {
+    error: KnockoutObservable<string>;
+    hasErrors: KnockoutComputed<boolean>;
+
+    constructor(label: string, private defaultValue: number, onChange: () => void, private defaultDelta = 1, private precision = 0, glyph = "") {
         super("NumericEditorView");
         this.textValue = ko.observable(this.defaultValue.toString());
         this.value = this.defaultValue;
         this.textValue.subscribe((value) => {
             this.onValueChanged(value);
+            onChange();
         });
         this.Label = ko.observable(label);
         this.Glyph = ko.observable(glyph);
+        this.error = ko.observable("");
+        this.hasErrors = ko.pureComputed(() => this.error() != "");
     }
 
     Plus() {
@@ -59,4 +65,7 @@ class NumericEditorViewModel extends ViewModel {
         }
     }
 
+    validate = (errors: Array<ErrorMessage>) => {
+        new ValidationHandler(this.error, this.Label()).handle(errors);
+    }
 }

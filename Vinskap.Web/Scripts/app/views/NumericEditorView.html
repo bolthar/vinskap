@@ -1,17 +1,19 @@
 ﻿
 <div class="row">
     <div class="col-md-3">
-        <div class="form-group has-feedback">
-            <label for="wineAlcohol" data-bind="text: Label"></label>
+        <div class="form-group has-feedback" data-bind="css: { 'has-error': hasErrors }">
+            <label for=" winealcohol" data-bind="text: Label">
+            </label>
             <div class="input-group">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-primary" data-bind="click: Minus">-</button>
+                    <button tabindex="-1" type="button" class="btn btn-primary" data-bind="click: Minus">-</button>
                 </span>
                 <input type="text" class="form-control" id="numeric" data-bind="textInput: textValue, event: { keypress : OnKeyDown }">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-primary" data-bind=" click: Plus">+</button>
+                    <button tabindex="-1" type="button" class="btn btn-primary" data-bind=" click: Plus">+</button>
                 </span>
             </div>
+            <span class="smallText" style="color: red" data-bind="text: error"></span>
             <span class="form-control-feedback" style="margin-right:30px" aria-hidden="true" data-bind="text: Glyph"></span>
         </div>
     </div>

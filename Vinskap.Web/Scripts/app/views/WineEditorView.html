@@ -1,17 +1,18 @@
 ﻿
 <div class="panel panel-default">
-    <div style="background:#EEE" class="panel-body">
-        <div class=" form-group">
-            <label for="wineName">Name</label>
-            <input type="text" class="form-control" id="wineName" data-bind="textInput: name" />            
+    <div data-bind="style: { background: error() == '' ? '#EEE' : '#FEE' }" class="panel-body">
+        <div data-bind="template: { name: ViewFor, data: name }"></div>
         <div class="form-group">
             <label for="searchField">Kind</label>
             <div data-bind="template: { name: ViewFor, data: kind }"></div>
+            <span class="smallText" style="color: red" data-bind="text: kindError"></span>
         </div>
         <div class="form-group">
             <label for="searchField">Producer</label>
             <div data-bind="template: { name: ViewFor, data: producer }"></div>
+            <span class="smallText" style="color: red" data-bind="text: producerError"></span>
         </div>
-        <div data-bind="template: { name: ViewFor, data: alcohol }"></div>        
+        <div data-bind="template: { name: ViewFor, data: alcohol }"></div>
+        <span class="smallText" style="color: red" data-bind="text: error"></span>
     </div>
 </div>

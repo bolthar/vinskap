@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
+    <TypeScriptCompile Include="Scripts\app\domain\Bottle.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\ErrorMessage.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
@@ -125,7 +126,9 @@
     <TypeScriptCompile Include="Scripts\app\services\ajax.ts" />
     <TypeScriptCompile Include="Scripts\app\services\ValidationHandler.ts" />
     <TypeScriptCompile Include="Scripts\app\services\ValidationProvider.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\AddBottleViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\EditorViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\IEditable.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\IValidatable.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindSuggestionViewModel.ts" />
@@ -138,6 +141,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionEntryViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\SuggestionsViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
+    <Content Include="Scripts\app\views\AddBottleView.html" />
     <Content Include="Scripts\app\views\EditorView.html" />
     <Content Include="Scripts\app\views\FieldEditorView.html" />
     <Content Include="Scripts\app\views\ProducerSuggestionView.html" />
@@ -175,6 +179,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BottleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KindController.cs" />
     <Compile Include="Controllers\ProducerController.cs" />
@@ -183,6 +188,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transport\BottleDTO.cs" />
     <Compile Include="Transport\KindDTO.cs" />
     <Compile Include="Transport\ProducerDTO.cs" />
     <Compile Include="Transport\WineDTO.cs" />

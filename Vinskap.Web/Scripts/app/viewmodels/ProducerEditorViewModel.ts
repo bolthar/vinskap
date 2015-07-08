@@ -4,9 +4,8 @@
 /// <reference path="../Services/ValidationProvider.ts" />
 /// <reference path="../Services/ValidationHandler.ts" />
 
-class ProducerEditorViewModel extends ViewModel implements IValidatable {
+class ProducerEditorViewModel extends ViewModel implements IValidatable, IEditable<Producer> {
 
-    producer: Producer;
     name: FieldEditorViewModel<string>;
 
     Error: KnockoutObservable<string>;
@@ -15,13 +14,12 @@ class ProducerEditorViewModel extends ViewModel implements IValidatable {
 
     constructor(searchTerm: string) {
         super("ProducerEditorView");
-        this.producer = Producer.fromSearchTerm(searchTerm);
         this.Error = ko.observable("");
-        this.validatorProvider = new ValidationProvider(this.toProducer, this.validatables, "/api/producer/validate");
-        this.name = new FieldEditorViewModel("Name", this.producer.Name, this.validatorProvider.triggerValidation);
+        this.validatorProvider = new ValidationProvider(this.value, this.validatables, "/api/producer/validate");
+        this.name = new FieldEditorViewModel("Name", searchTerm, this.validatorProvider.triggerValidation);
     }
 
-    toProducer = () => {
+    value = () => {
         return new Producer(this.name.value());
     }
 

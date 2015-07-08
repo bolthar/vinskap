@@ -1,5 +1,5 @@
 ﻿
-class SelectionViewModel<T> extends ViewModel {
+class SelectionViewModel<T> extends ViewModel implements IEditable<T> {
 
     entity: T;
 
@@ -15,5 +15,9 @@ class SelectionViewModel<T> extends ViewModel {
 
     Clear = () => {
         this.onClear();
+    }
+
+    value = () => {
+        return this.entity;
     }
 } 

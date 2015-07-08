@@ -1,7 +1,6 @@
 ﻿
-class KindEditorViewModel extends ViewModel implements IValidatable {
+class KindEditorViewModel extends ViewModel implements IValidatable, IEditable<Kind> {
 
-    kind: Kind;
     name: FieldEditorViewModel<string>;
     error: KnockoutObservable<string>;
     wineType: KnockoutObservable<string>;   
@@ -10,11 +9,11 @@ class KindEditorViewModel extends ViewModel implements IValidatable {
 
     constructor(searchTerm: string) {
         super("KindEditorView");
-        this.kind = Kind.fromSearchTerm(searchTerm);        
+        var kind = Kind.fromSearchTerm(searchTerm);        
         this.error = ko.observable("");
-        this.wineType = ko.observable(this.kind.Type);        
-        this.validatorProvider = new ValidationProvider(this.toKind, this.validatables, "/api/kind/validate");
-        this.name = new FieldEditorViewModel("Name", this.kind.Name, this.validatorProvider.triggerValidation);
+        this.wineType = ko.observable(kind.Type);        
+        this.validatorProvider = new ValidationProvider(this.value, this.validatables, "/api/kind/validate");
+        this.name = new FieldEditorViewModel("Name", kind.Name, this.validatorProvider.triggerValidation);
     }
 
     isSelected(wineType: string) {
@@ -25,7 +24,7 @@ class KindEditorViewModel extends ViewModel implements IValidatable {
         this.wineType(wineType);
     }
 
-    toKind = () => {
+    value = () => {
         return new Kind(this.name.value(), this.wineType());
     }
 

@@ -3,6 +3,7 @@
     <div class="form-group">
         <label for="searchField">Wine</label>
         <div data-bind="template: { name: ViewFor, data: Wine }"></div>
+        <span class="smallText" style="color: red" data-bind="text: wineError"></span>
     </div>
      <div data-bind="template: { name: ViewFor, data: year }"></div>
      <div data-bind="template: { name : ViewFor, data : price }"></div>        

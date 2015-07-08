@@ -1,11 +1,11 @@
-﻿/// <reference path="./BottleEditorViewModel.ts" />
+﻿/// <reference path="./AddBottleViewModel.ts" />
 
 class ShellViewModel extends ViewModel {    
 
     constructor() {
         super("ShellView");
-        this.Bottle(new BottleEditorViewModel());
+        this.Bottle(new AddBottleViewModel());
     }
 
-    Bottle = ko.observable<BottleEditorViewModel>();
+    Bottle = ko.observable<AddBottleViewModel>();
 }

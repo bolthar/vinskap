@@ -1,8 +1,7 @@
 ﻿/// <reference path="./SuggestionEntryViewModel.ts" />
 /// <reference path="./SuggestionCreateViewModel.ts" />
-/// <reference path="../domain/Wine.ts" />
 
-class SuggestionsViewModel<T> extends ViewModel {
+class SuggestionsViewModel<T> extends ViewModel implements IEditable<T> {
 
     Entries = ko.observableArray<SuggestionEntryViewModel<T>>();
     factory: (entity: T) => ViewModel;
@@ -96,4 +95,8 @@ class SuggestionsViewModel<T> extends ViewModel {
 
         return true;
     };
+
+    value = () => {
+        return null;
+    }
 } 
