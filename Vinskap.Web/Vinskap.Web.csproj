@@ -132,6 +132,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\IValidatable.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\KindSuggestionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\menu\MenuViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\NumericEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ProducerEditorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ProducerSuggestionViewModel.ts" />
@@ -144,6 +145,7 @@
     <Content Include="Scripts\app\views\AddBottleView.html" />
     <Content Include="Scripts\app\views\EditorView.html" />
     <Content Include="Scripts\app\views\FieldEditorView.html" />
+    <Content Include="Scripts\app\views\menu\MenuView.html" />
     <Content Include="Scripts\app\views\ProducerSuggestionView.html" />
     <Content Include="Scripts\app\views\ProducerEditorView.html" />
     <Content Include="Scripts\app\views\KindEditorView.html" />
