@@ -8,19 +8,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace Vinskap.Services
 {
     public class ExecutionContext
     {
         private IEnumerable<IEventListener> _listeners;
+        private EventLog _log = new EventLog(new NpgsqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["default"].ConnectionString)); 
 
         private ExecutionContext()
         {
             _listeners = new List<IEventListener> 
             {
                 CellarRepository.Instance,
-                new EventLog()
+                _log                
             };
         }
 

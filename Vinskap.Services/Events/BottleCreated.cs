@@ -15,6 +15,5 @@ namespace Vinskap.Services.Events
         {
             Bottle = bottle;
         }
-
     }
 }

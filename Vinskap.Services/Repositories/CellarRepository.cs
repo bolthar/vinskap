@@ -48,6 +48,10 @@ namespace Vinskap.Services.Repositories
                 if(_instance == null)
                 {
                     _instance = new CellarRepository();
+                    foreach(var ev in EventLog.Instance.Events)
+                    {
+                        _instance.Register(ev);
+                    }
                 }
 
                 return _instance;

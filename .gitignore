@@ -186,3 +186,4 @@ Vinskap.Web/app/app.js
 Vinskap.Web/app/app.js.map
 Vinskap.Web/Scripts/app/**/*.js
 Vinskap.Web/Scripts/app/**/*.js.map
+connectionStrings.config
