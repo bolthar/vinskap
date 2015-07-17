@@ -1,7 +1,7 @@
 ﻿class ProducerSuggestionViewModel extends ViewModel {
 
     constructor(private producer: Producer) {
-        super("ProducerSuggestionView");
+        super("display/ProducerDisplayView");
     }
 
     Title = function (): string {

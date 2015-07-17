@@ -10,7 +10,7 @@
 
         public string Name { get; private set; }
 
-        public WineType Type { get; private set; }
+        public WineType Type { get; set; }
 
         public override bool Equals(object obj)
         {

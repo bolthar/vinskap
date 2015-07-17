@@ -7,7 +7,7 @@ class SelectionViewModel<T> extends ViewModel implements IEditable<T> {
     onClear: () => void;
 
     constructor(entity: T, viewModel: ViewModel, onClear :() => void) {
-        super("SelectionView");
+        super("editors/common/SelectionView");
         this.entity = entity;
         this.viewModel = ko.observable(viewModel);
         this.onClear = onClear;

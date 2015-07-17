@@ -8,7 +8,7 @@ class KindEditorViewModel extends ViewModel implements IValidatable, IEditable<K
     validatorProvider: ValidationProvider<Kind>;     
 
     constructor(searchTerm: string) {
-        super("KindEditorView");
+        super("editors/KindEditorView");
         var kind = Kind.fromSearchTerm(searchTerm);        
         this.error = ko.observable("");
         this.wineType = ko.observable(kind.Type);        

@@ -1,10 +1,10 @@
 ﻿ 
-class WineSuggestionViewModel extends ViewModel {
+class WineDisplayViewModel extends ViewModel {
 
     wine: Wine;
 
     constructor(wine: Wine) {
-        super("WineSuggestionView");
+        super("display/WineDisplayView");
         this.wine = wine;
     }
 

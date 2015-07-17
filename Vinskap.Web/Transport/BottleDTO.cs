@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Web;
 using Vinskap.Domain;
 
 namespace Vinskap.Web.Transport
 {
-    [DataContract]
     public class BottleDTO
     {
-        [DataMember]
         public WineDTO Wine { get; set; }
 
-        [DataMember]
         public int Year { get; set; }
 
-        [DataMember]
         public double? Price { get; set; }
 
-        [DataMember]
         public DateTime AddedAt { get; set; }
 
         public static BottleDTO From(Bottle bottle)

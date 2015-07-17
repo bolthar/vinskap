@@ -7,7 +7,7 @@ class FieldEditorViewModel<T> extends ViewModel implements IValidatable {
     onChange: () => void;
 
     constructor(public label: string, startingValue: T, onChange: () => void) {
-        super("FieldEditorView");
+        super("editors/common/FieldEditorView");
         this.value = ko.observable(startingValue);
         this.value.extend({ rateLimit: 500 });
         this.value.subscribe((v) => onChange());

@@ -7,7 +7,7 @@ class Bottle {
 
     static fromJson(json: any) {
         return new Bottle(
-            Wine.fromJson["Wine"],
+            Wine.fromJson(json["Wine"]),
             json["Year"],
             json["Price"],
             new Date(Date.parse(json["AddedAt"])));

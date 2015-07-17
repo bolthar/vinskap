@@ -9,7 +9,7 @@ class ViewModel {
         this.View = ko.computed(() => "/Scripts/app/views/" + this.ViewName() + ".html");
     }
 
-    ViewFor = function (element: ViewModel) : string {
+    ViewFor = (element: ViewModel) => {
         return element.View();
     }
 }

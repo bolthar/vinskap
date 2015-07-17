@@ -1,4 +1,4 @@
-﻿/// <reference path="../domain/ErrorMessage.ts" />
+﻿/// <reference path="../../../domain/ErrorMessage.ts" />
 
 interface IValidatable {
 

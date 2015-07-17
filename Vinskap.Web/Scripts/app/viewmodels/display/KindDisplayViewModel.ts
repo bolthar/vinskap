@@ -2,7 +2,7 @@
 class KindSuggestionViewModel extends ViewModel {
 
     constructor(private kind: Kind) {
-        super("KindSuggestionView");
+        super("display/KindDisplayView");
     }
 
     Title = function (): string {

@@ -1,8 +1,8 @@
-﻿/// <reference path="../domain/ErrorMessage.ts" />
-/// <reference path="./IValidatable.ts" />
-/// <reference path="./FieldEditorViewModel.ts" />
-/// <reference path="../Services/ValidationProvider.ts" />
-/// <reference path="../Services/ValidationHandler.ts" />
+﻿/// <reference path="../../domain/ErrorMessage.ts" />
+/// <reference path="./common/IValidatable.ts" />
+/// <reference path="./common/FieldEditorViewModel.ts" />
+/// <reference path="../../Services/ValidationProvider.ts" />
+/// <reference path="../../Services/ValidationHandler.ts" />
 
 class ProducerEditorViewModel extends ViewModel implements IValidatable, IEditable<Producer> {
 
@@ -13,7 +13,7 @@ class ProducerEditorViewModel extends ViewModel implements IValidatable, IEditab
     validatorProvider: ValidationProvider<Producer>;
 
     constructor(searchTerm: string) {
-        super("ProducerEditorView");
+        super("editors/ProducerEditorView");
         this.Error = ko.observable("");
         this.validatorProvider = new ValidationProvider(this.value, this.validatables, "/api/producer/validate");
         this.name = new FieldEditorViewModel("Name", searchTerm, this.validatorProvider.triggerValidation);

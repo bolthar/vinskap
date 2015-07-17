@@ -10,7 +10,7 @@ class SuggestionsViewModel<T> extends ViewModel implements IEditable<T> {
     searchText: KnockoutObservable<string>;
 
     constructor(source: (searchTerm: string, onCompleted: (data: Array<T>) => void) => void, factory: (entity: T) => ViewModel, onChoice: (entry: T | string) => void) {
-        super("SuggestionsView");
+        super("editors/common/SuggestionsView");
         this.searchText = ko.observable("")
         this.searchText.extend({ rateLimit: 500 });
         this.searchText.subscribe((value) => {

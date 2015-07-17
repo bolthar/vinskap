@@ -1,5 +1,10 @@
-﻿/// <reference path="../Domain/Bottle.ts" />
-/// <reference path="./SearchViewModel.ts" />
+﻿/// <reference path="../../Domain/Bottle.ts" />
+/// <reference path="./common/SearchViewModel.ts" />
+/// <reference path="./common/IEditable.ts" />
+/// <reference path="./WineEditorViewModel.ts" />
+/// <reference path="../display/WineDisplayViewModel.ts" />
+/// <reference path="../../services/ValidationProvider.ts" />
+/// <reference path="../../services/ValidationHandler.ts" />
 
 
 class BottleEditorViewModel extends ViewModel implements IValidatable {
@@ -13,7 +18,7 @@ class BottleEditorViewModel extends ViewModel implements IValidatable {
     wineError: KnockoutObservable<string>;
 
     constructor() {
-        super("BottleEditorView");
+        super("editors/BottleEditorView");
 
         this.validatorProvider = new ValidationProvider(this.value, this.validatables, "/api/bottle/validate");
         this.Wine = ko.observable(new SearchViewModel<Wine>(
@@ -23,7 +28,7 @@ class BottleEditorViewModel extends ViewModel implements IValidatable {
                     (data) => Wine.fromJson(data),
                     callback);
             },
-            (e) => new WineSuggestionViewModel(e),
+            (e) => new WineDisplayViewModel(e),
             (st) => new WineEditorViewModel(st),
             this.validatorProvider.triggerValidation
             ));

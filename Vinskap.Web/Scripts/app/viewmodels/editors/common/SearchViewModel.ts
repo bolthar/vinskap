@@ -1,8 +1,6 @@
 ﻿/// <reference path="./SuggestionsViewModel.ts" />
 /// <reference path="./SelectionViewModel.ts" />
 /// <reference path="./EditorViewModel.ts" />
-/// <reference path="./WineEditorViewModel.ts" />
-/// <reference path="./WineSuggestionViewModel.ts" />
 
 class SearchViewModel<T> extends ViewModel {
 
@@ -19,7 +17,7 @@ class SearchViewModel<T> extends ViewModel {
             private onChanged: (() => void)
         )
     {
-        super("SearchView");
+        super("editors/common/SearchView");
         this.CurrentState = ko.observable<IEditable<T>>();
         this.setSuggestions();
         this.CurrentState.subscribe((v) => onChanged());

@@ -10,7 +10,7 @@ class NumericEditorViewModel extends ViewModel implements IValidatable {
     hasErrors: KnockoutComputed<boolean>;
 
     constructor(label: string, private defaultValue: number, onChange: () => void, private defaultDelta = 1, private precision = 0, glyph = "") {
-        super("NumericEditorView");
+        super("editors/common/NumericEditorView");
         this.textValue = ko.observable(this.defaultValue.toString());
         this.value = this.defaultValue;
         this.textValue.subscribe((value) => {

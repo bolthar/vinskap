@@ -2,7 +2,7 @@
 class EditorViewModel<T> extends ViewModel {
 
     constructor(public viewModel: IEditable<T>, public OnClear: () => void) {
-        super("EditorView");
+        super("editors/common/EditorView");
     }
 
     value = () => {

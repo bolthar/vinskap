@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Vinskap.Services.Repositories
 {
@@ -45,6 +46,7 @@ namespace Vinskap.Services.Repositories
         {
             get
             {
+
                 if(_instance == null)
                 {
                     _instance = new CellarRepository();

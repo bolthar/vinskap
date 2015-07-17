@@ -7,12 +7,10 @@ class Ajax {
         });
     }
 
-    static Post<T, TRes>(url: string, postData: T, resultTransform: (response: any) => TRes, onSuccess: (data: TRes) => void) {
+    static Post<T, TRes>(url: string, postData: T, resultTransform: (response: any) => TRes, onSuccess: (data: TRes) => void) {        
         $.ajax(url, {
             data: JSON.stringify(postData),
-            dataType: "json",
-            traditional: true,
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json',
             type: "POST",
             success: (data) => {
                 onSuccess(resultTransform(data));

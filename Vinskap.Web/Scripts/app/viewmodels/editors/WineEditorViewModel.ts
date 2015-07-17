@@ -1,7 +1,7 @@
-﻿/// <reference path="./NumericEditorViewModel.ts" />
-/// <reference path="./KindSuggestionViewModel.ts" />
+﻿/// <reference path="./common/NumericEditorViewModel.ts" />
+/// <reference path="../display/KindDisplayViewModel.ts" />
 /// <reference path="./KindEditorViewModel.ts" />
-/// <reference path="./ProducerSuggestionViewModel.ts" />
+/// <reference path="../display/ProducerDisplayViewModel.ts" />
 /// <reference path="./ProducerEditorViewModel.ts" />
 
 class WineEditorViewModel extends ViewModel implements IValidatable, IEditable<Wine> {
@@ -18,7 +18,7 @@ class WineEditorViewModel extends ViewModel implements IValidatable, IEditable<W
     validatorProvider: ValidationProvider<Wine>;
 
     constructor(searchTerm: string) {
-        super("WineEditorView");
+        super("editors/WineEditorView");
 
         this.validatorProvider = new ValidationProvider(this.value, this.validatables, "/api/wine/validate");
 

@@ -4,7 +4,7 @@ class SuggestionCreateViewModel<T> extends ViewModel {
     term: string;
 
     constructor(term: string) {
-        super("SuggestionCreateView");
+        super("editors/common/SuggestionCreateView");
         this.term = term;
     }
 

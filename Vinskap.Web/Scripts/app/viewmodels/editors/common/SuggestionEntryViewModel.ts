@@ -10,7 +10,7 @@ class SuggestionEntryViewModel<T> extends ViewModel {
     onSelect: (entry: SuggestionEntryViewModel<T>) => void;
 
     constructor(viewModel: ViewModel, isSelected: boolean, onSelect: (entry: SuggestionEntryViewModel<T>) => void, onChoose: () => void) {
-        super("SuggestionEntryView");
+        super("editors/common/SuggestionEntryView");
         this.viewModel = viewModel;
         this.selected = ko.observable<boolean>(isSelected);      
         this.entryClass = ko.pureComputed(() => {

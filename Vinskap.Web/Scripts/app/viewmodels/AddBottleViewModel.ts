@@ -1,4 +1,4 @@
-﻿/// <reference path="./BottleEditorViewModel.ts" />
+﻿/// <reference path="./editors/BottleEditorViewModel.ts" />
 
 class AddBottleViewModel extends ViewModel {
 
