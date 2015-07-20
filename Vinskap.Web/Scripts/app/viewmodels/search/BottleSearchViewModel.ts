@@ -6,14 +6,14 @@ class BottleSearchViewModel extends ViewModel {
     Filter: KnockoutObservable<BottleFilterViewModel>;
     List: KnockoutObservable<BottleListViewModel>;
 
-    constructor() {
+    constructor(private searchTarget: string, private onBottleSelected: (bottle: Bottle) => void) {
         super("search/BottleSearchView");        
         this.Filter = ko.observable(new BottleFilterViewModel(this.onSearchChanged));
-        this.List = ko.observable(new BottleListViewModel());
+        this.List = ko.observable(new BottleListViewModel(this.onBottleSelected));
     }
 
     onSearchChanged = (searchTerm: string, sortOption: string) => {        
-        Ajax.Get("/api/bottle?searchTerm=" + searchTerm + "&sortOption=" + sortOption,
+        Ajax.Get(this.searchTarget + "?searchTerm=" + searchTerm + "&sortOption=" + sortOption,
             (d) => Bottle.fromJson(d),
             (bottles) => this.List().UpdateWith(bottles));
     }

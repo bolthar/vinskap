@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Vinskap.Domain.Cellar;
 
 namespace Vinskap.Services.Repositories
 {
@@ -16,6 +17,7 @@ namespace Vinskap.Services.Repositories
         public EntityCache<Producer> Producers { get; private set; }
         public EntityCache<Wine> Wines { get; private set; }
         public EntityCache<Bottle> Bottles { get; private set; }
+        public Cellar Cellar { get; private set; }
 
         private CellarRepository()
         {
@@ -23,6 +25,10 @@ namespace Vinskap.Services.Repositories
             Producers = new EntityCache<Producer>();
             Wines = new EntityCache<Wine>();
             Bottles = new EntityCache<Bottle>();
+            Cellar = new Cellar();
+            Cellar.AddAisle(new Aisle("A", 9, 3));
+            Cellar.AddAisle(new Aisle("B", 9, 3));
+            Cellar.AddAisle(new Aisle("C", 9, 3));
         }
 
         public EntityCache<T> Get<T>()
@@ -85,6 +91,19 @@ namespace Vinskap.Services.Repositories
             if (ev is BottleCreated)
             {
                 Bottles.Add((ev as BottleCreated).Bottle);
+            }
+
+            if (ev is BottlePlaced)
+            {
+                // ugly
+                var bottlePlaced = ev as BottlePlaced;
+                var place = Cellar[bottlePlaced.Aisle][bottlePlaced.Row, bottlePlaced.Column];
+                var bottleToBePlaced = Bottles.FirstOrDefault(x => x == bottlePlaced.Bottle);
+                var bottleAlreadyThere = place.Bottle;
+                Bottles.Remove(bottleToBePlaced);
+                place.Bottle = bottleToBePlaced;
+                if (bottleAlreadyThere != null)
+                    Bottles.Add(bottleAlreadyThere);
             }
         }
     }

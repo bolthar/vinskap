@@ -1,17 +1,16 @@
-﻿/// <reference path="./AddBottleViewModel.ts" />
-/// <reference path="./search/BottleSearchViewModel.ts" />
-/// <reference path="./Menu/MenuViewModel.ts" />
+﻿/// <reference path="./Menu/MenuViewModel.ts" />
 
 class ShellViewModel extends ViewModel {    
 
     constructor() {
         super("ShellView");
-        //this.Bottle(new AddBottleViewModel());
-        this.Search(new BottleSearchViewModel());
-        this.Menu(new MenuViewModel());
+        this.Menu(new MenuViewModel(this.changeContainer));
     }
 
-    //Bottle = ko.observable<AddBottleViewModel>();
-    Search = ko.observable<BottleSearchViewModel>();
+    Container = ko.observable<ViewModel>();
     Menu = ko.observable<MenuViewModel>();
+
+    changeContainer = (viewModel: ViewModel) => {
+        this.Container(viewModel);
+    }
 }

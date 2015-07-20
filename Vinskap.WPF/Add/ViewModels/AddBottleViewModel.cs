@@ -30,7 +30,8 @@ namespace Vinskap.WPF.Add.ViewModels
 
         void View_OK()
         {
-            Editor.Commit().Bind(x => ExecutionContext.Instance.Execute(new CreateBottle(x)).Bind(y => View_Cancel()));
+            Editor.Commit().Bind(x => ExecutionContext.Instance.Execute(new CreateBottle(x)));
+            View_Cancel();
         }
     }
 }

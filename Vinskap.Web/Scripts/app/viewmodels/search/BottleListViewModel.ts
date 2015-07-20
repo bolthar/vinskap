@@ -5,14 +5,14 @@ class BottleListViewModel extends ViewModel {
 
     Bottles = ko.observableArray<BottleListItemViewModel>();
 
-    constructor() {
+    constructor(private onBottleSelected: (bottle: Bottle) => void) {
         super("search/BottleListView");
     }
 
     UpdateWith = (bottles: Array<Bottle>) => {
         this.Bottles.removeAll();
         $.each(bottles, (i, b) => {
-            this.Bottles.push(new BottleListItemViewModel(new BottleDisplayViewModel(b)));
+            this.Bottles.push(new BottleListItemViewModel(b, this.onBottleSelected));
         });     
     }
 } 

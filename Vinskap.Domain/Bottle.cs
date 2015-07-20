@@ -22,5 +22,15 @@ namespace Vinskap.Domain
         public double? Price { get; private set; }
 
         public DateTime AddedAt { get; private set; }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Bottle;
+
+            if (other == null)
+                return false;
+
+            return other.AddedAt == this.AddedAt;
+        }
     }
 }

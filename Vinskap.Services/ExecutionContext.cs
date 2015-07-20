@@ -39,15 +39,14 @@ namespace Vinskap.Services
             }
         }
 
-        public Maybe<Bottle> Execute(CreateBottle createBottle)
+        public void Execute(IEventSource eventSource)
         {
-            createBottle.Fire += createBottle_Fire;
-            var result = createBottle.Execute();
-            createBottle.Fire -= createBottle_Fire;
-            return result;
+            eventSource.Fire += eventSource_Fire;
+            eventSource.Execute();
+            eventSource.Fire -= eventSource_Fire;
         }
 
-        void createBottle_Fire(IEvent obj)
+        void eventSource_Fire(IEvent obj)
         {
             foreach (var listener in _listeners)
                 listener.Register(obj);

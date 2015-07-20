@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CreateBottle.cs" />
+    <Compile Include="Events\IEventSource.cs" />
+    <Compile Include="Commands\PlaceBottle.cs" />
     <Compile Include="Commands\Vaildation\ErrorMessage.cs" />
     <Compile Include="Commands\Vaildation\IValidator.cs" />
     <Compile Include="Commands\Vaildation\UniquenessConstraint.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="Commands\Vaildation\ValidateWine.cs" />
     <Compile Include="Commands\Vaildation\ValidatorFor.cs" />
     <Compile Include="Events\BottleCreated.cs" />
+    <Compile Include="Events\BottlePlaced.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventListener.cs" />
     <Compile Include="Events\KindCreated.cs" />

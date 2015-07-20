@@ -16,6 +16,11 @@ namespace Vinskap.Services.Repositories
             _cache.Add(entity);
         }
 
+        public void Remove(T entity)
+        {
+            _cache.Remove(entity);
+        }
+
         #region IQueryable members
         public IEnumerator<T> GetEnumerator()
         {

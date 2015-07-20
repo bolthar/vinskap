@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Vinskap.Services.Commands
 {
-    public class CreateBottle
+    public class CreateBottle : IEventSource
     {
         private Bottle _bottle;
         public event Action<IEvent> Fire;
@@ -20,9 +20,9 @@ namespace Vinskap.Services.Commands
             _bottle = bottle;
         }
 
-        public Maybe<Bottle> Execute()
+        public void Execute()
         {
-            return new ValidateBottle(_bottle.Wine.ToMaybe()
+            new ValidateBottle(_bottle.Wine.ToMaybe()
                 .Bind(x => new ValidateWine(x.Name,
                     x.Kind.ToMaybe().Bind(y => new ValidateKind(y.Name, y.Type).Commit()),
                     x.Producer.ToMaybe().Bind(y => new ValidateProducer(y.Name).Commit()),
@@ -34,7 +34,6 @@ namespace Vinskap.Services.Commands
                 new UniquenessConstraint<Kind>(() => x.Wine.Kind.ToMaybe()).Commit().Bind(y => Fire(new KindCreated(y)));
                 new UniquenessConstraint<Wine>(() => x.Wine.ToMaybe()).Commit().Bind(y => Fire(new WineCreated(y)));
                 Fire(new BottleCreated(x));
-                return x.ToMaybe();
             });
         }
     }

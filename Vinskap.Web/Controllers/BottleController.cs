@@ -11,16 +11,19 @@ using Vinskap.Functional;
 using Vinskap.Domain;
 using Vinskap.Services;
 using Vinskap.Services.Queries;
+using Vinskap.Services.Repositories;
 
 namespace Vinskap.Web.Controllers
 {
     public class BottleController : ApiController
-    {        
+    {
+
+        [Route("api/bottles/unplaced")]
         [HttpGet]
-        public IEnumerable<BottleDTO> Index(string searchTerm, string sortOption)
+        public IEnumerable<BottleDTO> UnplacedBottles(string searchTerm, string sortOption)
         {
             var dto = new BottleSearchDTO { SearchTerm = searchTerm, SortOption = sortOption };
-            return new SearchBottle(dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => BottleDTO.From(x));
+            return new SearchBottle(CellarRepository.Instance.Bottles, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => BottleDTO.From(x));
         }
 
         [Route("api/bottle/validate")]

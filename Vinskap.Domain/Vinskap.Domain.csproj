@@ -68,10 +68,14 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bottle.cs" />
+    <Compile Include="Cellar\Aisle.cs" />
+    <Compile Include="Cellar\Cellar.cs" />
+    <Compile Include="Cellar\Place.cs" />
     <Compile Include="Kind.cs" />
     <Compile Include="Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
