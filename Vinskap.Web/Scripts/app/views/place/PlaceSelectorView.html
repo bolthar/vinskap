@@ -1,0 +1,7 @@
+﻿
+<div>
+    <div style="padding:5px" data-bind="template: { name: ViewFor, data: selectedBottle }, css: selectedBottle.ContainerClass()"></div>
+    <div data-bind="template: { name: ViewFor, data: cellar }"></div>
+    <div data-bind="template: { name: ViewFor, data: detail }"></div>    
+</div>
+<button type="button" class="btn btn-primary pull-right" data-bind="click: placeBottle, css: { 'disabled': hasNoPlace }">Place</button>

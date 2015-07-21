@@ -123,10 +123,18 @@
     <TypeScriptCompile Include="Scripts\app\domain\Bottle.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\ErrorMessage.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
+    <TypeScriptCompile Include="Scripts\app\domain\Place.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\AisleViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\CellarViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\PlaceViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\RowViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\display\BottleDisplayViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\place\CurrentPlaceViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\place\EmptyPlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\PlaceBottlesViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\place\PlaceSelectorViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\search\BottleListItemViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\search\BottleListViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\search\BottleSearchViewModel.ts" />
@@ -152,6 +160,10 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\search\WineChartViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
     <Content Include="Scripts\app\views\AddBottleView.html" />
+    <Content Include="Scripts\app\views\cellar\AisleView.html" />
+    <Content Include="Scripts\app\views\cellar\CellarView.html" />
+    <Content Include="Scripts\app\views\cellar\PlaceView.html" />
+    <Content Include="Scripts\app\views\cellar\RowView.html" />
     <Content Include="Scripts\app\views\display\BottleDisplayView.html" />
     <Content Include="Scripts\app\views\editors\common\EditorView.html" />
     <Content Include="Scripts\app\views\editors\common\FieldEditorView.html" />
@@ -167,7 +179,10 @@
     <Content Include="Scripts\app\views\editors\common\SuggestionEntryView.html" />
     <Content Include="Scripts\app\views\editors\common\SuggestionsView.html" />
     <Content Include="Scripts\app\views\LoadingView.html" />
+    <Content Include="Scripts\app\views\place\CurrentPlaceView.html" />
+    <Content Include="Scripts\app\views\place\EmptyPlaceView.html" />
     <Content Include="Scripts\app\views\place\PlaceBottlesView.html" />
+    <Content Include="Scripts\app\views\place\PlaceSelectorView.html" />
     <Content Include="Scripts\app\views\search\BottleFilterView.html" />
     <Content Include="Scripts\app\views\search\BottleListItemView.html" />
     <Content Include="Scripts\app\views\search\BottleListView.html" />
@@ -199,6 +214,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BottleController.cs" />
     <Compile Include="Controllers\CellarController.cs" />
+    <Compile Include="Transport\AisleDTO.cs" />
     <Compile Include="Transport\BottleSearchDTO.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KindController.cs" />
@@ -210,6 +226,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\BottleDTO.cs" />
     <Compile Include="Transport\KindDTO.cs" />
+    <Compile Include="Transport\PlaceDTO.cs" />
     <Compile Include="Transport\ProducerDTO.cs" />
     <Compile Include="Transport\WineDTO.cs" />
   </ItemGroup>
@@ -228,8 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\app\viewmodels\cellar\" />
-    <Folder Include="Scripts\app\views\cellar\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />

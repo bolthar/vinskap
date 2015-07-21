@@ -29,8 +29,8 @@ namespace Vinskap.Services.Commands
 
         public void Execute()
         {
-            CellarRepository.Instance.Bottles.FirstOrDefault(x => x == _bottle)
-                .ToMaybe().Bind(x =>
+            var bottle = CellarRepository.Instance.Bottles.FirstOrDefault(x => x.Equals(_bottle));            
+            bottle.ToMaybe().Bind(x =>
                 {
                     CellarRepository.Instance.Cellar[_aisle]
                         .ToMaybe().Bind(a =>

@@ -8,18 +8,23 @@ namespace Vinskap.Domain.Cellar
 {
     public class Cellar
     {
-        private IList<Aisle> _aisles = new List<Aisle>();
+        public IList<Aisle> Aisles { get; private set; }
+
+        public Cellar()
+        {
+            Aisles = new List<Aisle>();
+        }
 
         public void AddAisle(Aisle aisle)
         {
-            _aisles.Add(aisle);
+            Aisles.Add(aisle);
         }
 
         public Aisle this[string name]
         {
             get
             {
-                return _aisles.FirstOrDefault(x => x.Name == name);                    
+                return Aisles.FirstOrDefault(x => x.Name == name);                    
             }
         }
 
@@ -27,7 +32,7 @@ namespace Vinskap.Domain.Cellar
         {
             get
             {
-                return _aisles.SelectMany(x => x.Bottles);
+                return Aisles.SelectMany(x => x.Bottles).Select(x => x.Item3);
             }
         }
     }

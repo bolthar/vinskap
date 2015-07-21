@@ -9,13 +9,17 @@ namespace Vinskap.Domain.Cellar
     public class Aisle
     {
         public string Name { get; private set; }
+        public int Rows { get; private set; }
+        public int Columns { get; private set; }
 
         private Place[,] _places;
 
         public Aisle(string name, int nRows, int nColumns)
         {
             Name = name;
-            _places = new Place[nRows, nColumns];
+            Rows = nRows;
+            Columns = nColumns;
+            _places = new Place[Rows, Columns];
         }
 
         public Place this[int row, int column]
@@ -26,17 +30,25 @@ namespace Vinskap.Domain.Cellar
             }
         }
 
-        public IEnumerable<Bottle> Bottles
+        public IEnumerable<Tuple<int, int, Bottle>> Bottles
         {
             get
             {                
-                return _places.OfType<Place>().Select(x => x.Bottle);
+                for(int i = 0; i < Rows; i++)
+                {
+                    for(int j = 0; j < Columns; j++)
+                    {
+                        var bottle = getPlace(i, j).Bottle;
+                        if (bottle != null)
+                            yield return new Tuple<int, int, Bottle>(i, j, bottle);
+                    }
+                }
             }
         }
 
         private Place getPlace(int row, int column)
         {
-            if(_places.GetLength(0) > row && _places.GetLength(1) > column)
+            if(Rows > row && Columns > column)
             {
                 if (_places[row, column] == null)
                     _places[row, column] = new Place();

@@ -94,11 +94,10 @@ namespace Vinskap.Services.Repositories
             }
 
             if (ev is BottlePlaced)
-            {
-                // ugly
+            {                
                 var bottlePlaced = ev as BottlePlaced;
                 var place = Cellar[bottlePlaced.Aisle][bottlePlaced.Row, bottlePlaced.Column];
-                var bottleToBePlaced = Bottles.FirstOrDefault(x => x == bottlePlaced.Bottle);
+                var bottleToBePlaced = Bottles.FirstOrDefault(x => x.Equals(bottlePlaced.Bottle));
                 var bottleAlreadyThere = place.Bottle;
                 Bottles.Remove(bottleToBePlaced);
                 place.Bottle = bottleToBePlaced;

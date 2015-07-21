@@ -38,7 +38,7 @@ namespace Vinskap.Services.Commands.Vaildation
 
         public override Maybe<Bottle> Activate()
         {
-            return _wine.Bind(x => new Bottle(x, _year, _price, DateTime.Now).ToMaybe());
+            return _wine.Bind(x => new Bottle(Guid.NewGuid(), x, _year, _price, DateTime.Now).ToMaybe());
             
         }
     }

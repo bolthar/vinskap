@@ -10,6 +10,7 @@ using System.Web.Http;
 using Vinskap.Web.App_Start;
 using System.Web.Optimization;
 using Vinskap.Services.Repositories;
+using Vinskap.Services.Events;
 namespace Vinskap.Web
 {
     public class Global : HttpApplication

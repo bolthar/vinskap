@@ -7,13 +7,16 @@ namespace Vinskap.Domain
 {
     public class Bottle
     {
-        public Bottle(Wine wine, int year, double? price, DateTime addedAt)
+        public Bottle(Guid guid, Wine wine, int year, double? price, DateTime addedAt)
         {
+            Guid = guid;
             Wine = wine;
             Year = year;
             Price = price;
             AddedAt = addedAt;
         }
+
+        public Guid Guid { get; private set; }
 
         public Wine Wine { get; private set; }
 
@@ -30,7 +33,13 @@ namespace Vinskap.Domain
             if (other == null)
                 return false;
 
-            return other.AddedAt == this.AddedAt;
+            return other.Guid.Equals(this.Guid);
         }
+
+        public override int GetHashCode()
+        {
+            return Guid.GetHashCode();
+        }
+
     }
 }

@@ -44,7 +44,7 @@ class BottleEditorViewModel extends ViewModel implements IValidatable {
     }
 
     value = () => {
-        return new Bottle(this.Wine().value(), this.year.value, this.price.value, new Date(Date.now())); // , Date.now());
+        return new Bottle("new", this.Wine().value(), this.year.value, this.price.value, new Date(Date.now()));
     }
 
     validate = (errors: Array<ErrorMessage>) => {

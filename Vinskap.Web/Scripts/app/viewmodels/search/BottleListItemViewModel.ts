@@ -8,7 +8,7 @@ class BottleListItemViewModel extends ViewModel {
         this.viewModel = new BottleDisplayViewModel(bottle);
     }
 
-    onClick = () => {
+    onClick = () => {        
         this.onClicked(this.bottle);
     }
 } 
