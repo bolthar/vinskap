@@ -20,6 +20,7 @@ class PlaceBottlesViewModel extends ViewModel {
     }
 
     onBottlePlaced = () => {
+        this.Search.reload();
         this.Current(this.Search);
     }
 } 

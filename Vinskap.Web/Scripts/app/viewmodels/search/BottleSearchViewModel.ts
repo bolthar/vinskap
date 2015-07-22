@@ -17,4 +17,8 @@ class BottleSearchViewModel extends ViewModel {
             (d) => Bottle.fromJson(d),
             (bottles) => this.List().UpdateWith(bottles));
     }
+
+    reload = () => {
+        this.Filter().onChange();
+    }
 }
