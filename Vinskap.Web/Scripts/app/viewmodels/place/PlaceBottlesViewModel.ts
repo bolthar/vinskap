@@ -1,12 +1,14 @@
 ﻿/// <reference path="../search/BottleSearchViewModel.ts" />
 /// <reference path="./PlaceSelectorViewModel.ts" />
 
-class PlaceBottlesViewModel extends ViewModel {
+class PlaceBottlesViewModel extends ViewModel implements IContainer {
 
     Current: KnockoutObservable<ViewModel>;
 
     Search: BottleSearchViewModel;
     Cellar: PlaceSelectorViewModel;
+
+    title = "Place bottle";
     
     constructor() {
         super("place/PlaceBottlesView");

@@ -1,9 +1,11 @@
 ﻿/// <reference path="./editors/BottleEditorViewModel.ts" />
 
-class AddBottleViewModel extends ViewModel {
+class AddBottleViewModel extends ViewModel implements IContainer {
 
     bottleEditor: KnockoutObservable<BottleEditorViewModel>;
     hasErrors: KnockoutComputed<boolean>;
+
+    title = "Add new bottle";
 
     constructor() {
         super("AddBottleView");

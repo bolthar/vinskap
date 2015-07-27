@@ -1,11 +1,13 @@
 ﻿/// <reference path="../AddBottleViewModel.ts" />
 /// <reference path="../place/PlaceBottlesViewModel.ts" />
 /// <reference path="../search/WineChartViewModel.ts" />
+/// <reference path="../cellar/CellarDisplayViewModel.ts" />
 
 class MenuViewModel extends ViewModel {
 
-    constructor(private onSectionChanged: (viewModel : ViewModel) => void) {
-        super("Menu/MenuView");
+    constructor(private onSectionChanged: (viewModel: IContainer) => void) {
+        super("menu/MenuView");
+        this.showCellar();
     }
 
     addNewBottle = () => {
@@ -18,5 +20,9 @@ class MenuViewModel extends ViewModel {
 
     showList = () => {
         this.onSectionChanged(new WineChartViewModel());
+    }
+
+    showCellar = () => {
+        this.onSectionChanged(new CellarDisplayViewModel());
     }
 } 

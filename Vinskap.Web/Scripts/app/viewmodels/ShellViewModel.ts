@@ -1,4 +1,5 @@
-﻿/// <reference path="./Menu/MenuViewModel.ts" />
+﻿/// <reference path="./IContainer.ts" />
+/// <reference path="./Menu/MenuViewModel.ts" />
 
 class ShellViewModel extends ViewModel {    
 
@@ -7,10 +8,10 @@ class ShellViewModel extends ViewModel {
         this.Menu(new MenuViewModel(this.changeContainer));
     }
 
-    Container = ko.observable<ViewModel>();
+    Container = ko.observable<IContainer>();
     Menu = ko.observable<MenuViewModel>();
 
-    changeContainer = (viewModel: ViewModel) => {
+    changeContainer = (viewModel: IContainer) => {
         this.Container(viewModel);
     }
 }

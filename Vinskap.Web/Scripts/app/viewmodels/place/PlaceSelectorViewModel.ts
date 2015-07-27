@@ -22,6 +22,7 @@ class PlaceSelectorViewModel extends ViewModel {
     }
 
     onSelected = (selection: Place) => {
+        this.cellar.setSelection(selection);
         this.detail(new CurrentPlaceViewModel(selection));    
         this.place(selection);
     }

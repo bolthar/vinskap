@@ -1,0 +1,4 @@
+﻿
+interface IContainer {
+    title: string;
+} 

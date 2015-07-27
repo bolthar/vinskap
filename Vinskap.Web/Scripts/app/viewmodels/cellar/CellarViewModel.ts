@@ -14,8 +14,7 @@ class CellarViewModel extends ViewModel {
         });
     }
 
-    selectPlace = (selection: Place) => {        
-        this.setSelection(selection);
+    selectPlace = (selection: Place) => {                
         this.onPlaceSelected(selection);
     }
 
