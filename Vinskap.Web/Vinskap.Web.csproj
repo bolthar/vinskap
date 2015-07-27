@@ -127,10 +127,12 @@
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\AisleViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\CellarDisplayViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\CellarViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\PlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\RowViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\display\BottleDisplayViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\IContainer.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\CurrentPlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\EmptyPlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\PlaceBottlesViewModel.ts" />
@@ -161,6 +163,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\ViewModel.ts" />
     <Content Include="Scripts\app\views\AddBottleView.html" />
     <Content Include="Scripts\app\views\cellar\AisleView.html" />
+    <Content Include="Scripts\app\views\cellar\CellarDisplayView.html" />
     <Content Include="Scripts\app\views\cellar\CellarView.html" />
     <Content Include="Scripts\app\views\cellar\PlaceView.html" />
     <Content Include="Scripts\app\views\cellar\RowView.html" />
