@@ -18,8 +18,6 @@ class BottleFilterViewModel extends ViewModel {
     }
 
     onChange = () => {
-        if (this.searchTerm().length > 1) {
-            this.onSearchChanged(this.searchTerm(), this.sortOption());
-        }
+        this.onSearchChanged(this.searchTerm(), this.sortOption());
     }
 }

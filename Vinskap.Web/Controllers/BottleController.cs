@@ -20,10 +20,10 @@ namespace Vinskap.Web.Controllers
 
         [Route("api/bottles/unplaced")]
         [HttpGet]
-        public IEnumerable<BottleDTO> UnplacedBottles(string searchTerm, string sortOption)
+        public IEnumerable<RatedBottleDTO> UnplacedBottles(string searchTerm, string sortOption)
         {
             var dto = new BottleSearchDTO { SearchTerm = searchTerm, SortOption = sortOption };
-            return new SearchBottle(CellarRepository.Instance.Bottles, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => BottleDTO.From(x));
+            return new SearchBottle(CellarRepository.Instance.Storage, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => RatedBottleDTO.From(x, new GetRating(x).Run()));
         }
 
         [Route("api/bottle/validate")]

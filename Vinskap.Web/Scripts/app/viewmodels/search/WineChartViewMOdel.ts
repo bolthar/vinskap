@@ -8,9 +8,10 @@ class WineChartViewModel extends ViewModel {
 
     constructor() {
         super("search/WineChartView");
-        this.Search = new BottleSearchViewModel("api/cellar/bottles", this.onBottleSelected)
+        this.Search = new BottleSearchViewModel("api/cellar/bottles", this.onBottleSelected);
+        this.Search.reload();
     }
 
-    onBottleSelected = (bottle: Bottle) => {
+    onBottleSelected = (bottle: RatedBottle) => {
     }
 }

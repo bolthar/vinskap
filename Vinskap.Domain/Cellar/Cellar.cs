@@ -35,5 +35,17 @@ namespace Vinskap.Domain.Cellar
                 return Aisles.SelectMany(x => x.Bottles).Select(x => x.Item3);
             }
         }
+
+        public Place PlaceOf(Bottle bottle)
+        {
+            foreach(var aisle in Aisles)
+            {
+                var place = aisle.Bottles.FirstOrDefault(x => x.Item3 == bottle);
+                if (place != null)
+                    return aisle[place.Item1, place.Item2];
+            }
+
+            return null;            
+        }
     }
 }

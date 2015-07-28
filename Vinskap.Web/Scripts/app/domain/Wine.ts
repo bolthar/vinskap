@@ -11,7 +11,8 @@ class Wine {
             json["Name"],
             Kind.fromJson(json["Kind"]),
             Producer.fromJson(json["Producer"]),
-            json["Alcohol"]);
+            json["Alcohol"]
+            );
     }
 
     static fromSearchTerm(term: string) {

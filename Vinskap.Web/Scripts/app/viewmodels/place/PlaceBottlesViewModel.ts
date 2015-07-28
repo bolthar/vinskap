@@ -14,9 +14,10 @@ class PlaceBottlesViewModel extends ViewModel implements IContainer {
         super("place/PlaceBottlesView");
         this.Search = new BottleSearchViewModel("api/bottles/unplaced", this.onBottleSelected);        
         this.Current = ko.observable(this.Search);
+        this.Search.reload();
     }
 
-    onBottleSelected = (bottle: Bottle) => {        
+    onBottleSelected = (bottle: RatedBottle) => {        
         this.Cellar = new PlaceSelectorViewModel(bottle, this.onBottlePlaced);
         this.Current(this.Cellar);
     }

@@ -79,6 +79,7 @@
     <Compile Include="Kind.cs" />
     <Compile Include="Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs" />
     <Compile Include="Wine.cs" />
     <Compile Include="WineType.cs" />
   </ItemGroup>

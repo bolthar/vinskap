@@ -16,10 +16,10 @@ namespace Vinskap.Web.Controllers
     {
         [Route("api/cellar/bottles")]
         [HttpGet]
-        public IEnumerable<BottleDTO> Bottles(string searchTerm, string sortOption)
+        public IEnumerable<RatedBottleDTO> Bottles(string searchTerm, string sortOption)
         {
             var dto = new BottleSearchDTO { SearchTerm = searchTerm, SortOption = sortOption };
-            return new SearchBottle(CellarRepository.Instance.Cellar.Bottles, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => BottleDTO.From(x));
+            return new SearchBottle(CellarRepository.Instance.Cellar.Bottles, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => RatedBottleDTO.From(x, new GetRating(x).Run()));
         }
 
         [HttpGet]
@@ -32,14 +32,14 @@ namespace Vinskap.Web.Controllers
         [HttpGet]
         public IEnumerable<PlaceDTO> AisleBottles(string name)
         {
-            return CellarRepository.Instance.Cellar[name].Bottles.Select(x => new PlaceDTO(x.Item1, x.Item2, name, x.Item3));
+            return CellarRepository.Instance.Cellar[name].Bottles.Select(x => new PlaceDTO(x.Item1, x.Item2, name, x.Item3, new GetRating(x.Item3).Run()));
         }
 
         [Route("api/cellar/place")]
         [HttpPost]
         public void PlaceBottle(PlaceDTO place)
         {            
-            ExecutionContext.Instance.Execute(new PlaceBottle(place.Bottle.To(), place.Aisle, place.Row, place.Column));
+            ExecutionContext.Instance.Execute(new PlaceBottle(place.Bottle.Bottle.To(), place.Aisle, place.Row, place.Column));
         }
     
     }

@@ -1,17 +1,14 @@
 ﻿
 class PlaceViewModel extends ViewModel {
 
-    bottle: KnockoutObservable<Bottle>;
+    bottle: KnockoutObservable<RatedBottle>;
     CurrentState: KnockoutComputed<string>;
 
     isSelected: KnockoutObservable<boolean>;
 
     constructor(private column: number,
         private onSelected: (selection: Place) => void,
-
-
-        private onHighlighted: (selection: Place) => void
-        )
+        private onHighlighted: (selection: Place) => void)
         {
         super("cellar/PlaceView");
         this.isSelected = ko.observable(false);
@@ -20,7 +17,7 @@ class PlaceViewModel extends ViewModel {
             if (this.bottle == null || this.bottle() == null) {
                 return "empty";
             }
-            return this.bottle().Wine.Kind.Type;
+            return this.bottle().Bottle.Wine.Kind.Type;
         });
     }
 
@@ -36,7 +33,7 @@ class PlaceViewModel extends ViewModel {
         }
     }
 
-    setBottleTo = (bottle: Bottle) => {
+    setBottleTo = (bottle: RatedBottle) => {
         this.bottle(bottle);
     }
 

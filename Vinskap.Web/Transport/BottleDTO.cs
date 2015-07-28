@@ -13,6 +13,7 @@ namespace Vinskap.Web.Transport
         public double? Price { get; set; }
         public DateTime AddedAt { get; set; }
         public Guid Guid { get; set; }
+        public int? Rating { get; set; }
 
         public static BottleDTO From(Bottle bottle)
         {

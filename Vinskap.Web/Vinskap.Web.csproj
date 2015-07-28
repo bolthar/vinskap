@@ -115,6 +115,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Stylesheets\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Stylesheets\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Stylesheets\bootstrap\bootstrap.min.css" />
     <Content Include="Global.asax" />
@@ -125,6 +128,7 @@
     <TypeScriptCompile Include="Scripts\app\domain\Kind.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Place.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Producer.ts" />
+    <TypeScriptCompile Include="Scripts\app\domain\RatedBottle.ts" />
     <TypeScriptCompile Include="Scripts\app\domain\Wine.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\AisleViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\CellarDisplayViewModel.ts" />
@@ -132,6 +136,7 @@
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\PlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\cellar\RowViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\display\BottleDisplayViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\viewmodels\display\RatedBottleDisplayViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\IContainer.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\CurrentPlaceViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\viewmodels\place\EmptyPlaceViewModel.ts" />
@@ -168,6 +173,7 @@
     <Content Include="Scripts\app\views\cellar\PlaceView.html" />
     <Content Include="Scripts\app\views\cellar\RowView.html" />
     <Content Include="Scripts\app\views\display\BottleDisplayView.html" />
+    <Content Include="Scripts\app\views\display\RatedBottleDisplayView.html" />
     <Content Include="Scripts\app\views\editors\common\EditorView.html" />
     <Content Include="Scripts\app\views\editors\common\FieldEditorView.html" />
     <Content Include="Scripts\app\views\menu\MenuView.html" />
@@ -196,6 +202,18 @@
     </Content>
     <Content Include="Content\Stylesheets\app.less" />
     <Content Include="connectionStrings.config" />
+    <Content Include="Content\Stylesheets\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Stylesheets\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Stylesheets\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Stylesheets\fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\deploy.pubxml" />
     <None Include="Scripts\lib\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\app\views\editors\WineEditorView.html" />
@@ -231,6 +249,7 @@
     <Compile Include="Transport\KindDTO.cs" />
     <Compile Include="Transport\PlaceDTO.cs" />
     <Compile Include="Transport\ProducerDTO.cs" />
+    <Compile Include="Transport\RatedBottleDTO.cs" />
     <Compile Include="Transport\WineDTO.cs" />
   </ItemGroup>
   <ItemGroup>

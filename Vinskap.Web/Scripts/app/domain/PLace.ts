@@ -1,7 +1,7 @@
 ﻿
 class Place {
 
-    constructor(public Row: number, public Column: number, public Aisle: string, public Bottle: Bottle) {
+    constructor(public Row: number, public Column: number, public Aisle: string, public Bottle: RatedBottle) {
     }
 
     static fromJson(json: any) {
@@ -9,7 +9,7 @@ class Place {
             json["Row"],
             json["Column"],
             json["Aisle"],
-            json["Bottle"] != null ? Bottle.fromJson(json["Bottle"]) : null);
+            json["Bottle"] != null ? RatedBottle.fromJson(json["Bottle"]) : null);
     }
 
     AddRow = (row: number) => {

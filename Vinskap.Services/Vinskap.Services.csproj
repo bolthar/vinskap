@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CreateBottle.cs" />
+    <Compile Include="Commands\OpenBottle.cs" />
+    <Compile Include="Commands\RateBottle.cs" />
+    <Compile Include="Commands\Vaildation\ValidateRating.cs" />
+    <Compile Include="Commands\ValidateRating.cs" />
+    <Compile Include="Events\BottleOpened.cs" />
+    <Compile Include="Events\BottleRated.cs" />
     <Compile Include="Events\IEventSource.cs" />
     <Compile Include="Commands\PlaceBottle.cs" />
     <Compile Include="Commands\Vaildation\ErrorMessage.cs" />
@@ -109,6 +115,7 @@
     <Compile Include="Functional\Maybe.cs" />
     <Compile Include="Persistence\PersistedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetRating.cs" />
     <Compile Include="Queries\SearchBottle.cs" />
     <Compile Include="Queries\SearchKind.cs" />
     <Compile Include="Queries\SearchProducer.cs" />

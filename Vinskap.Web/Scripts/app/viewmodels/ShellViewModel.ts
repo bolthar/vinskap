@@ -5,7 +5,12 @@ class ShellViewModel extends ViewModel {
 
     constructor() {
         super("ShellView");
-        this.Menu(new MenuViewModel(this.changeContainer));
+        this.Menu(new MenuViewModel(this.changeContainer));        
+        
+    }
+
+    averageRating = () => {
+        return 2;
     }
 
     Container = ko.observable<IContainer>();

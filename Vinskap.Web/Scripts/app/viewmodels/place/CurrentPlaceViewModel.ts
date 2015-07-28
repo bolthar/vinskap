@@ -6,7 +6,7 @@ class CurrentPlaceViewModel extends ViewModel {
     constructor(private selection: Place) {
         super("place/CurrentPlaceView");
         if (selection.Bottle != null) {
-            this.detail = new BottleDisplayViewModel(selection.Bottle);
+            this.detail = new RatedBottleDisplayViewModel(selection.Bottle);
         } else {
             this.detail = new EmptyPlaceViewModel();            
         }

@@ -15,17 +15,20 @@ namespace Vinskap.Services.Queries
 
         public SearchBottle(IEnumerable<Bottle> source, string searchTerm)
         {
-            _searchTerm = searchTerm.ToLower();
+            _searchTerm = searchTerm;
             _source = source;
         }
 
         public IEnumerable<Bottle> Run()
         {
+            if (string.IsNullOrEmpty(_searchTerm))
+                return _source;
+
             var year = 0;
-            int.TryParse(_searchTerm, out year);
+            int.TryParse(_searchTerm.ToLower(), out year);
             var matchesYear = _source
                 .Where(x => x.Year == year);
-            var wines = new SearchWine(_searchTerm).Run().ToList();
+            var wines = new SearchWine(_searchTerm.ToLower()).Run().ToList();
             var fromWine = _source
                 .Where(x => wines.Contains(x.Wine));
 

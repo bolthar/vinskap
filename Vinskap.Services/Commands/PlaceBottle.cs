@@ -29,7 +29,7 @@ namespace Vinskap.Services.Commands
 
         public void Execute()
         {
-            var bottle = CellarRepository.Instance.Bottles.FirstOrDefault(x => x.Equals(_bottle));            
+            var bottle = CellarRepository.Instance.Storage.FirstOrDefault(x => x.Equals(_bottle));            
             bottle.ToMaybe().Bind(x =>
                 {
                     CellarRepository.Instance.Cellar[_aisle]
@@ -40,8 +40,7 @@ namespace Vinskap.Services.Commands
                                 Fire(new BottlePlaced(x, a.Name, _row, _column));
                             });
                         });
-                });
-                
+                });                
         }
     }
 }

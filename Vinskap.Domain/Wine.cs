@@ -17,7 +17,7 @@ namespace Vinskap.Domain
 
         public Kind Kind { get; private set; }
 
-        public string Name;
+        public string Name { get; private set; }
 
         public Producer Producer { get; private set; }
 

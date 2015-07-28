@@ -1,2 +1,4 @@
 ﻿
-<div style="cursor: pointer" class="wine-bottle" data-bind="css: viewModel.ContainerClass(), template: { name: ViewFor, data: viewModel }, click: onClick"></div>
+<div style="cursor: pointer" class="wine-bottle" data-bind="css: viewModel.ContainerClass(), click: onClick">
+    <div data-bind="template: { name: ViewFor, data: viewModel }"></div>
+</div>

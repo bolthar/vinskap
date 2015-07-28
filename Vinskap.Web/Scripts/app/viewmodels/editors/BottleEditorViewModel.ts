@@ -1,4 +1,4 @@
-﻿/// <reference path="../../Domain/Bottle.ts" />
+﻿/// <reference path="../../Domain/RatedBottle.ts" />
 /// <reference path="./common/SearchViewModel.ts" />
 /// <reference path="./common/IEditable.ts" />
 /// <reference path="./WineEditorViewModel.ts" />

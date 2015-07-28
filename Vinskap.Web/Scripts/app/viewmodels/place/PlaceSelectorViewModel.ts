@@ -7,14 +7,14 @@ class PlaceSelectorViewModel extends ViewModel {
 
     detail: KnockoutObservable<ViewModel>;
     cellar: CellarViewModel;
-    selectedBottle: BottleDisplayViewModel;
+    selectedBottle: RatedBottleDisplayViewModel;
 
     place: KnockoutObservable<Place>;
     hasNoPlace: KnockoutComputed<boolean>;
 
-    constructor(private bottle: Bottle, private onBottlePlaced: () => void) {
+    constructor(private bottle: RatedBottle, private onBottlePlaced: () => void) {
         super("place/PlaceSelectorView");
-        this.selectedBottle = new BottleDisplayViewModel(bottle);
+        this.selectedBottle = new RatedBottleDisplayViewModel(bottle);
         this.cellar = new CellarViewModel(this.onSelected, this.onHighlighted);
         this.detail = ko.observable(new EmptyPlaceViewModel());
         this.place = ko.observable(null);
