@@ -98,9 +98,9 @@ namespace Vinskap.Services.Repositories
             if(ev is BottleOpened)
             {
                 var bo = ev as BottleOpened;
-                var bottle = Cellar.Bottles.Where(x => x == bo.Bottle).FirstOrDefault();
+                var bottle = Cellar.Bottles.Where(x => x.Equals(bo.Bottle)).FirstOrDefault();
                 var bottlePlace = this.Cellar.PlaceOf(bottle);
-                bottlePlace.Bottle = null;
+                this.Cellar[bottlePlace.Item3][bottlePlace.Item1, bottlePlace.Item2].Bottle = null;
                 WasteBin.Add(bottle);
             }
 

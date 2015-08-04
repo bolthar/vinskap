@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Vinskap.Domain;
+using Vinskap.Domain.Cellar;
 
 namespace Vinskap.Web.Transport
 {

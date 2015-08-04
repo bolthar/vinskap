@@ -1,0 +1,23 @@
+﻿
+<div style="padding:5px;" data-bind="css: display.ContainerClass()">
+    <div data-bind="template: { name: ViewFor, data: display }"></div>
+</div>
+
+<table>
+    <tr>
+        <td>
+            Price:
+        </td>
+        <td>
+            <span data-bind="text: Price()"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Added:
+        </td>
+        <td>
+            <span data-bind="text: AddedAt()"></span>
+        </td>
+    </tr>
+</table>

@@ -3,7 +3,11 @@ class Ajax {
 
     static Get<T>(url: string, transform: (data: any) => T, callback: (result: Array<T>) => void) {
         $.get(url, (data) => {
-            callback($.map(data, (i) => transform(i)));
+            if (data instanceof Array) {
+                callback($.map(data, (i) => transform(i)));
+            } else {
+                callback([transform(data)]);
+            }
         });
     }
 

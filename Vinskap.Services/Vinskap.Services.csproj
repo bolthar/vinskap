@@ -116,6 +116,7 @@
     <Compile Include="Persistence\PersistedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetRating.cs" />
+    <Compile Include="Queries\GetUnratedBottles.cs" />
     <Compile Include="Queries\SearchBottle.cs" />
     <Compile Include="Queries\SearchKind.cs" />
     <Compile Include="Queries\SearchProducer.cs" />

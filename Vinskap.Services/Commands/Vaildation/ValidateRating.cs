@@ -24,8 +24,11 @@ namespace Vinskap.Services.Commands.Vaildation
         {
             get
             {
-                if (!CellarRepository.Instance.WasteBin.Any(x => x == _bottle))
+                if (!CellarRepository.Instance.WasteBin.Any(x => x.Equals(_bottle)))
                     yield return new ErrorMessage("Bottle", "Can't rate the bottle if still closed");
+
+                if (CellarRepository.Instance.Ratings.Any(x => x.Bottle.Equals(_bottle)))
+                    yield return new ErrorMessage("Bottle", "Can't rate bottle twice");
 
                 if (_score > 5 || _score < 1)
                     yield return new ErrorMessage("Score", "Score out of bounds");

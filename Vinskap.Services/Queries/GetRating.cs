@@ -19,9 +19,7 @@ namespace Vinskap.Services.Queries
 
         public double? Run()
         {
-            return 2.65;
-
-            var ratings = CellarRepository.Instance.Ratings.Where(x => x.Bottle.Wine == _bottle.Wine);
+            var ratings = CellarRepository.Instance.Ratings.Where(x => x.Bottle.Wine.Equals(_bottle.Wine));
             if (ratings.Any())
                 return ratings.Select(x => x.Score).Average();
 

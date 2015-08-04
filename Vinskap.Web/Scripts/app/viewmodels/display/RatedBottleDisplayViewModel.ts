@@ -19,7 +19,6 @@ class RatedBottleDisplayViewModel extends ViewModel {
         if (this.bottle.score == null)
             return null;
 
-        alert(new Number(this.bottle.score.toFixed(0)));
-        return new Array(3);
+        return new Array(parseInt(this.bottle.score.toFixed(0).toString()));
     }
 }  

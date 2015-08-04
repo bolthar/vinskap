@@ -26,6 +26,14 @@ namespace Vinskap.Web.Controllers
             return new SearchBottle(CellarRepository.Instance.Storage, dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => RatedBottleDTO.From(x, new GetRating(x).Run()));
         }
 
+        [Route("api/bottles/unrated")]
+        [HttpGet]
+        public IEnumerable<RatedBottleDTO> UnratedBottles(string searchTerm, string sortOption)
+        {
+            var dto = new BottleSearchDTO { SearchTerm = searchTerm, SortOption = sortOption };
+            return new SearchBottle(new GetUnratedBottles().Run(), dto.SearchTerm).Run().OrderByDescending(dto.SortDefinition).Select(x => RatedBottleDTO.From(x, 0));
+        }
+
         [Route("api/bottle/validate")]
         [HttpPost]
         public IEnumerable<ErrorMessage> Validate(BottleDTO bottle)
@@ -40,6 +48,13 @@ namespace Vinskap.Web.Controllers
         {
             var entity = bottle.To();
             ExecutionContext.Instance.Execute(new CreateBottle(entity));
+        }
+
+        [Route("api/bottle/open")]
+        [HttpPost]
+        public void Open(BottleDTO bottle)
+        {
+            ExecutionContext.Instance.Execute(new OpenBottle(bottle.To()));
         }
     }
 }

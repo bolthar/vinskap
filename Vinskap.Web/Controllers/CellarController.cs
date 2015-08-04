@@ -41,6 +41,14 @@ namespace Vinskap.Web.Controllers
         {            
             ExecutionContext.Instance.Execute(new PlaceBottle(place.Bottle.Bottle.To(), place.Aisle, place.Row, place.Column));
         }
-    
+
+        [Route("api/cellar/placeFor")]
+        [HttpGet]
+        public PlaceDTO PlaceForBottle(Guid bottleId)
+        {
+            var bottle = CellarRepository.Instance.Cellar.Bottles.FirstOrDefault(x => x.Guid == bottleId);
+            var result = CellarRepository.Instance.Cellar.PlaceOf(bottle);
+            return new PlaceDTO(result.Item1, result.Item2, result.Item3, result.Item4, new GetRating(bottle).Run());
+        }    
     }
 }

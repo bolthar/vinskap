@@ -36,13 +36,14 @@ namespace Vinskap.Domain.Cellar
             }
         }
 
-        public Place PlaceOf(Bottle bottle)
+        // plz no 
+        public Tuple<int, int, string, Bottle> PlaceOf(Bottle bottle)
         {
             foreach(var aisle in Aisles)
             {
                 var place = aisle.Bottles.FirstOrDefault(x => x.Item3 == bottle);
                 if (place != null)
-                    return aisle[place.Item1, place.Item2];
+                    return new Tuple<int, int, string, Bottle>(place.Item1, place.Item2, aisle.Name, place.Item3);
             }
 
             return null;            
