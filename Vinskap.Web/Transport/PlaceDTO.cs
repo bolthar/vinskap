@@ -14,13 +14,16 @@ namespace Vinskap.Web.Transport
         public string Aisle { get; set; }
         public RatedBottleDTO Bottle { get; set; }
 
-        public PlaceDTO(int row, int column, string aisle, Bottle bottle, double? score)
+        public static PlaceDTO Create(int row, int column, string aisle, Bottle bottle, double? score)
         {
-            Row = row;
-            Column = column;
-            Aisle = aisle;
+            var place = new PlaceDTO();
+            place.Row = row;
+            place.Column = column;
+            place.Aisle = aisle;
             if (bottle != null)
-                Bottle = RatedBottleDTO.From(bottle, score);
+                place.Bottle = RatedBottleDTO.From(bottle, score);
+
+            return place;
         }
     }
 }

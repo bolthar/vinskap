@@ -1,9 +1,6 @@
 ﻿/// <reference path="../place/CurrentPlaceViewModel.ts" />
 /// <reference path="../detail/BottleDetailViewModel.ts" />
 
-/// <reference path="../detail/BottleDetailViewModel.ts" />
-/// <reference path="../place/CurrentPlaceViewModel.ts" />
-
 class CellarBottleViewModel extends ViewModel {
 
     detail: BottleDetailViewModel;

@@ -32,7 +32,7 @@ namespace Vinskap.Web.Controllers
         [HttpGet]
         public IEnumerable<PlaceDTO> AisleBottles(string name)
         {
-            return CellarRepository.Instance.Cellar[name].Bottles.Select(x => new PlaceDTO(x.Item1, x.Item2, name, x.Item3, new GetRating(x.Item3).Run()));
+            return CellarRepository.Instance.Cellar[name].Bottles.Select(x => PlaceDTO.Create(x.Item1, x.Item2, name, x.Item3, new GetRating(x.Item3).Run()));
         }
 
         [Route("api/cellar/place")]
@@ -48,7 +48,7 @@ namespace Vinskap.Web.Controllers
         {
             var bottle = CellarRepository.Instance.Cellar.Bottles.FirstOrDefault(x => x.Guid == bottleId);
             var result = CellarRepository.Instance.Cellar.PlaceOf(bottle);
-            return new PlaceDTO(result.Item1, result.Item2, result.Item3, result.Item4, new GetRating(bottle).Run());
+            return PlaceDTO.Create(result.Item1, result.Item2, result.Item3, result.Item4, new GetRating(bottle).Run());
         }    
     }
 }
